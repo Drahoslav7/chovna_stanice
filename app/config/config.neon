@@ -21,7 +21,3 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 
-database:
-	dsn: 'mysql:host=localhost:/var/run/mysql/mysql.sock;dbname=xbedna55'
-	user: xbedna55
-	password: arvon3ci

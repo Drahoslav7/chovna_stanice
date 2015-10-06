@@ -26,7 +26,7 @@ class ErrorPresenter extends Nette\Application\UI\Presenter
 	{
 		if ($exception instanceof Nette\Application\BadRequestException) {
 			$code = $exception->getCode();
-			$this->setView(in_array($code, [403, 404, 405, 410, 500]) ? $code : '4xx');
+			$this->setView(in_array($code, array(403, 404, 405, 410, 500) ? $code : '4xx');
 
 		} else {
 			$this->setView('500');
