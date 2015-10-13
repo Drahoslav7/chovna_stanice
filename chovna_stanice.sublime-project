@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/web/www/chovna_stanice",
+			"folder_exclude_patterns": [
+				"vendor", "temp", "log"
+			]
+		}
+	]
+}
