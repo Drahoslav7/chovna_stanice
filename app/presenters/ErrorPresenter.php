@@ -6,7 +6,7 @@ use Nette;
 use Tracy\ILogger;
 
 
-class ErrorPresenter extends Nette\Application\UI\Presenter
+class ErrorPresenter extends Nette\Object implements Nette\Application\IPresenter
 {
 	/** @var ILogger */
 	private $logger;
@@ -19,24 +19,21 @@ class ErrorPresenter extends Nette\Application\UI\Presenter
 
 
 	/**
-	 * @param  \Exception
-	 * @return void
+	 * @return Nette\Application\IResponse
 	 */
-	public function renderDefault($exception)
+	public function run(Nette\Application\Request $request)
 	{
-		if ($exception instanceof Nette\Application\BadRequestException) {
-			$code = $exception->getCode();
-			$this->setView(in_array($code, array(403, 404, 405, 410, 500)) ? $code : '4xx');
+		$e = $request->getParameter('exception');
 
-		} else {
-			$this->setView('500');
-			$this->logger->log($exception, ILogger::EXCEPTION);
+		if ($e instanceof Nette\Application\BadRequestException) {
+			// $this->logger->log("HTTP code {$e->getCode()}: {$e->getMessage()} in {$e->getFile()}:{$e->getLine()}", 'access');
+			return new Nette\Application\Responses\ForwardResponse($request->setPresenterName('Error4xx'));
 		}
 
-		if ($this->isAjax()) {
-			$this->payload->error = TRUE;
-			$this->terminate();
-		}
+		$this->logger->log($e, ILogger::EXCEPTION);
+		return new Nette\Application\Responses\CallbackResponse(function () {
+			require __DIR__ . '/templates/Error/500.phtml';
+		});
 	}
 
 }
