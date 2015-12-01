@@ -1,19 +1,10 @@
 /*
-Navicat Oracle Data Transfer
-Oracle Client Version : 10.2.0.5.0
 
-Source Server         : Merlin
-Source Server Version : 120100
-Source Host           : gort.fit.vutbr.cz:1521
-Source Schema         : XBALVI00
-
-Target Server Type    : ORACLE
-Target Server Version : 120100
-File Encoding         : 65001
-
-Date: 2015-05-04 21:15:32
 */
 
+SET foreign_key_checks = 0;
+DROP TABLE IF EXISTS `chovna_stanice`, `objednavka`, `pes`, `pes_mereni`, `pes_oceneni`, `pes_plemeno`, `pes_vakcinace`, `pes_vazeni`, `uzivatel`, `uzivatel_klient`, `uzivatel_zamestnanec`, `vakcina`;
+SET foreign_key_checks = 1;
 
 -- ----------------------------
 -- Table structure for Chovna_stanice
@@ -29,11 +20,6 @@ Zeme VARCHAR(3)
 );
 
 -- ----------------------------
--- Records of Chovna_stanice
--- ----------------------------
-INSERT INTO Chovna_stanice VALUES ('1', 'Utulek kamaradu', 'Prazska', 'Praha', '12364', 'CZE');
-
--- ----------------------------
 -- Table structure for Objednavka
 -- ----------------------------
 DROP TABLE IF EXISTS Objednavka;
@@ -47,12 +33,6 @@ Uzivatel_Login VARCHAR(8) NOT NULL
 );
 
 -- ----------------------------
--- Records of Objednavka
--- ----------------------------
-INSERT INTO Objednavka VALUES ('1', '1', STR_TO_DATE('2015-04-10 23:14:15', 'YYYY-MM-DD HH24:MI:SS'), '5000', '4', 'zkunca07');
-INSERT INTO Objednavka VALUES ('2', '1', STR_TO_DATE('2013-06-18 23:14:56', 'YYYY-MM-DD HH24:MI:SS'), '10000', '3', 'xlehne01');
-
--- ----------------------------
 -- Table structure for Pes
 -- ----------------------------
 DROP TABLE IF EXISTS Pes;
@@ -61,7 +41,7 @@ ID INT(10) NOT NULL ,
 Jmeno VARCHAR(20) DEFAULT ''  NULL ,
 Pohlavi CHAR(1) DEFAULT NULL  NULL ,
 Datum_narozeni DATE NULL ,
-Cislo_cipu INT NULL ,
+Cislo_cipu BIGINT NULL ,
 Barva_srsti VARCHAR(20) NULL ,
 Druh_srsti VARCHAR(20) NULL ,
 Chovna_stanice_ID INT(10) DEFAULT NULL  NULL ,
@@ -69,17 +49,6 @@ Plemeno_ID INT(10) NULL ,
 Matka_ID INT(10) NULL ,
 Otec_ID INT(10) NULL
 );
-
--- ----------------------------
--- Records of Pes
--- ----------------------------
-INSERT INTO Pes VALUES ('3', 'Lajka', 'F', STR_TO_DATE('2013-12-18 22:52:04', 'YYYY-MM-DD HH24:MI:SS'), '123433690123456', 'Cernobila', 'Rex', null, '1', '2', '1');
-INSERT INTO Pes VALUES ('4', 'Colin', 'M', STR_TO_DATE('2015-01-14 22:52:04', 'YYYY-MM-DD HH24:MI:SS'), '123333789123456', 'Seda', 'Bez', '1', '2', null, null);
-INSERT INTO Pes VALUES ('1', 'Rex', 'M', STR_TO_DATE('2012-03-12 22:52:04', 'YYYY-MM-DD HH24:MI:SS'), '123929652976738', 'Bila', 'Rex', null, '1', null, null);
-INSERT INTO Pes VALUES ('2', 'Rita', 'F', STR_TO_DATE('2012-04-12 22:52:04', 'YYYY-MM-DD HH24:MI:SS'), '123456755234574', 'Cerna', 'Bez', null, '1', null, null);
-INSERT INTO Pes VALUES ('5', 'Colina', 'F', STR_TO_DATE('2015-04-12 10:10:10', 'YYYY-MM-DD HH24:MI:SS'), '165655646546546', 'Cerna', 'Bez', null, '2', '2', '4');
-INSERT INTO Pes VALUES ('10', 'COl', 'F', null, null, null, null, null, null, null, null);
-INSERT INTO Pes VALUES ('11', 'ADA', 'M', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for Pes_mereni
@@ -96,13 +65,6 @@ Obvod INT(3) NULL
 );
 
 -- ----------------------------
--- Records of Pes_mereni
--- ----------------------------
-INSERT INTO Pes_mereni VALUES ('1', '1', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '30', '50', '20');
-INSERT INTO Pes_mereni VALUES ('2', '2', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '32', '48', '20');
-INSERT INTO Pes_mereni VALUES ('3', '2', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '31', '48', '20');
-
--- ----------------------------
 -- Table structure for Pes_oceneni
 -- ----------------------------
 DROP TABLE IF EXISTS Pes_oceneni;
@@ -113,14 +75,6 @@ Datum DATE NULL ,
 Nazev NVARCHAR(255) NULL ,
 Popis NVARCHAR(255) NULL
 );
-
--- ----------------------------
--- Records of Pes_oceneni
--- ----------------------------
-INSERT INTO Pes_oceneni VALUES ('1', '4', STR_TO_DATE('2015-02-14 23:06:53', 'YYYY-MM-DD HH24:MI:SS'), 'Krasne mlade', 'Oceceni za nejkrasnejsi stenatko');
-INSERT INTO Pes_oceneni VALUES ('2', '4', STR_TO_DATE('2015-02-14 23:06:53', 'YYYY-MM-DD HH24:MI:SS'), 'Vonave nohy', 'Oceneni za vonave nohy');
-INSERT INTO Pes_oceneni VALUES ('3', '4', STR_TO_DATE('2013-12-18 23:06:53', 'YYYY-MM-DD HH24:MI:SS'), 'Redundantni oceneni', 'Koupene za penize');
-INSERT INTO Pes_oceneni VALUES ('4', '2', STR_TO_DATE('2014-09-10 23:06:53', 'YYYY-MM-DD HH24:MI:SS'), 'Nejlepsi rodicka', null);
 
 -- ----------------------------
 -- Table structure for Pes_plemeno
@@ -136,12 +90,6 @@ Popis NVARCHAR(255) NULL
 );
 
 -- ----------------------------
--- Records of Pes_plemeno
--- ----------------------------
-INSERT INTO Pes_plemeno VALUES ('1', 'Jack Russel Terier', '30', '5', 'UK', 'Pratelsky pes');
-INSERT INTO Pes_plemeno VALUES ('2', 'Border Kolie', '50', '17', 'UK', 'Aktivni pes');
-
--- ----------------------------
 -- Table structure for Pes_vakcinace
 -- ----------------------------
 DROP TABLE IF EXISTS Pes_vakcinace;
@@ -151,13 +99,6 @@ Vakcina_ID INT(10) NULL ,
 Uzivatel_Login VARCHAR(8) NULL ,
 Datum DATE NULL
 );
-
--- ----------------------------
--- Records of Pes_vakcinace
--- ----------------------------
-INSERT INTO Pes_vakcinace VALUES ('1', '1', 'zbalvi00', STR_TO_DATE('2015-04-11 23:05:03', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO Pes_vakcinace VALUES ('1', '4', 'zbalvi00', STR_TO_DATE('2015-04-11 23:05:19', 'YYYY-MM-DD HH24:MI:SS'));
-INSERT INTO Pes_vakcinace VALUES ('4', '3', 'zbedna55', STR_TO_DATE('2015-04-09 23:05:34', 'YYYY-MM-DD HH24:MI:SS'));
 
 -- ----------------------------
 -- Table structure for Pes_vazeni
@@ -172,19 +113,12 @@ Vaha INT(3) NULL
 );
 
 -- ----------------------------
--- Records of Pes_vazeni
--- ----------------------------
-INSERT INTO Pes_vazeni VALUES ('1', '1', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '30');
-INSERT INTO Pes_vazeni VALUES ('2', '2', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '30');
-INSERT INTO Pes_vazeni VALUES ('3', '2', 'zbalvi00', STR_TO_DATE('2015-04-11 23:09:51', 'YYYY-MM-DD HH24:MI:SS'), '31');
-
--- ----------------------------
 -- Table structure for Uzivatel
 -- ----------------------------
 DROP TABLE IF EXISTS `uzivatel`;
 CREATE TABLE `uzivatel` (
   `Login` varchar(8) NOT NULL,
-  `Heslo` blob,
+  `Heslo` varchar(128) NOT NULL,
   `Jmeno` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `Prijmeni` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `K_Ulice` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
@@ -195,14 +129,6 @@ CREATE TABLE `uzivatel` (
   `Role` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Login`)
 );
-
--- ----------------------------
--- Records of Uzivatel
--- ----------------------------
-INSERT INTO Uzivatel VALUES ('zkunca07', '1', 'Jiri', 'Kuncak', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
-INSERT INTO Uzivatel VALUES ('xlehne01', '2', 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
-INSERT INTO Uzivatel VALUES ('zbalvi00', '3', 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'spravce');
-INSERT INTO Uzivatel VALUES ('zbedna55', '4', 'Drahoslav', 'Bednar', 'Brnenska', 'Brno', '61215', '123777895', 'xbedna55@chovatelna.cz', 'spravce');
 
 -- ----------------------------
 -- Table structure for Uzivatel_klient
@@ -216,11 +142,6 @@ F_PSC NVARCHAR(5) NULL
 );
 
 -- ----------------------------
--- Records of Uzivatel_klient
--- ----------------------------
-INSERT INTO Uzivatel_klient VALUES ('xlehne01', 'Vesnicovska', 'Vesnice', '11132');
-
--- ----------------------------
 -- Table structure for Uzivatel_zamestnanec
 -- ----------------------------
 DROP TABLE IF EXISTS Uzivatel_zamestnanec;
@@ -229,13 +150,6 @@ Login VARCHAR(8) NOT NULL ,
 Zkr_fce NVARCHAR(4) NULL ,
 Plat INT(10) NULL
 );
-
--- ----------------------------
--- Records of Uzivatel_zamestnanec
--- ----------------------------
-INSERT INTO Uzivatel_zamestnanec VALUES ('zkunca07', 'RED', '50000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('zbalvi00', 'CHV', '20000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('zbedna55', 'CHV', '25000');
 
 -- ----------------------------
 -- Table structure for Vakcina
@@ -247,14 +161,6 @@ Nazev NVARCHAR(30) NULL ,
 Popis NVARCHAR(255) NULL ,
 Doba_ucinnosti INT(10) NULL
 );
-
--- ----------------------------
--- Records of Vakcina
--- ----------------------------
-INSERT INTO Vakcina VALUES ('1', 'Vakcinol', 'Cervy', '30');
-INSERT INTO Vakcina VALUES ('2', 'Antinol', 'Blechy', '10');
-INSERT INTO Vakcina VALUES ('3', 'Kukurukuxol', 'Zivot', '300');
-INSERT INTO Vakcina VALUES ('4', 'Kvalitinol', 'Vse', '1');
 
 
 -- ----------------------------
@@ -436,90 +342,95 @@ ALTER TABLE Uzivatel_zamestnanec ADD FOREIGN KEY (Login) REFERENCES Uzivatel (Lo
 
 
 
--- SELEKTY
 
 
-
-
--- příklady spojení 2 tabulek
-
--- Která ocenění (Název, Popis) získal pes s číslem čipu 123929652976738
- SELECT DISTINCT Nazev, Popis FROM Pes_oceneni LEFT JOIN Pes
-ON Pes.ID = Pes_oceneni.Pes_ID AND Pes.Cislo_cipu = '123929652976738';
-
--- kteří psi pochazí z chovné stanice Utulek kamaradu
- SELECT Jmeno FROM Pes JOIN Chovna_stanice
-ON Chovna_stanice.ID = Pes.Chovna_stanice_ID AND Chovna_stanice.Nazev = 'Utulek kamaradu';
-
-
-/* NEFUNGUJE
--- příklad spojení 3 tabulek
--- Kteří chovatelé (Jmeno, Prijmeni) někdy prováděli vakcinaci nějaké fenky
-SELECT DISTINCT Jmeno, Prijmeni FROM Uzivatel LEFT JOIN Pes_vakcinace LEFT JOIN Pes
-WHERE Pes.id = Pes_vakcinace.id AND Pes_vakcinace.Login = Uzivatel.Login AND Pes.Pohlavi = 'F';
-
-*/
--- příklady s klauzulí GROUP BY a agregační funkcí,
-
--- jaká byla maximální váha psa s id 1
-SELECT max(Vaha) FROM Pes_vazeni
-WHERE Pes_ID = 1
-GROUP BY Vaha;
-
--- kterým psem má kolik štenat fenka s id 2?
-SELECT count(*) as pocet_stenat, Otec_ID FROM Pes
-WHERE Pes.Matka_ID = 2
-GROUP BY Otec_ID;
-
-
--- příklad obsahující predikát EXISTS
--- kteří psi nebyli nikdy vakcinovani
-SELECT Jmeno FROM Pes WHERE NOT EXISTS (
-	SELECT * FROM Pes_vakcinace WHERE Pes_vakcinace.Pes_ID = Pes.ID
-);
-
-
--- příklad s predikátem IN s vnořeným selectem
--- Kteří chovatelé prováděli měření pouze psů plemene Border Kolie
-SELECT DISTINCT Jmeno, Prijmeni FROM Uzivatel WHERE Uzivatel.Login NOT IN (
-	SELECT Login FROM Pes_mereni NATURAL JOIN Pes_plemeno
-	WHERE Pes_plemeno.Nazev <> 'Border Kolie'
-);
-
+-- -----------------------------------------------------------------------
+-- DATA
+-- -----------------------------------------------------------------------
 
 
 -- ----------------------------
--- Ukol ctvrty ukazky
+-- Records of Uzivatel
 -- ----------------------------
+INSERT INTO Uzivatel VALUES ('zkunca07', SHA2('1', 512), 'Jiri', 'Kuncak', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
+INSERT INTO Uzivatel VALUES ('xlehne01', SHA2('2', 512), 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
+INSERT INTO Uzivatel VALUES ('zbalvi00', SHA2('3', 512), 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'spravce');
+INSERT INTO Uzivatel VALUES ('zbedna55', SHA2('4', 512), 'Drahoslav', 'Bednar', 'Brnenska', 'Brno', '61215', '123777895', 'xbedna55@chovatelna.cz', 'spravce');
 
--- Trigger na Auto-increment
-INSERT INTO Pes (Jmeno, Pohlavi) VALUES ('Alpaka', 'F');
+-- ----------------------------
+-- Records of Uzivatel_klient
+-- ----------------------------
+INSERT INTO Uzivatel_klient VALUES ('xlehne01', 'Vesnicovska', 'Vesnice', '11132');
 
--- Trigger na Delete
+-- ----------------------------
+-- Records of Uzivatel_zamestnanec
+-- ----------------------------
+INSERT INTO Uzivatel_zamestnanec VALUES ('zkunca07', 'RED', '50000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('zbalvi00', 'CHV', '20000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('zbedna55', 'CHV', '25000');
+
+-- ----------------------------
+-- Records of Chovna_stanice
+-- ----------------------------
+INSERT INTO Chovna_stanice VALUES ('1', 'Utulek kamaradu', 'Prazska', 'Praha', '12364', 'CZE');
+
+-- ----------------------------
+-- Records of Pes_plemeno
+-- ----------------------------
+INSERT INTO Pes_plemeno VALUES ('1', 'Jack Russel Terier', '30', '5', 'UK', 'Pratelsky pes');
+INSERT INTO Pes_plemeno VALUES ('2', 'Border Kolie', '50', '17', 'UK', 'Aktivni pes');
+
+-- ----------------------------
+-- Records of Pes
+-- ----------------------------
+INSERT INTO Pes VALUES ('1', 'Rex', 'M', '2012-03-12 22:52:04', '123929652976738', 'Bila', 'Rex', null, '1', null, null);
+INSERT INTO Pes VALUES ('2', 'Rita', 'F', '2012-04-12 22:52:04', '123456755234574', 'Cerna', 'Bez', null, '1', null, null);
+INSERT INTO Pes VALUES ('3', 'Lajka', 'F', '2013-12-18 22:52:04', '123433690123456', 'Cernobila', 'Rex', null, '1', '2', '1');
+INSERT INTO Pes VALUES ('4', 'Colin', 'M', '2015-01-14 22:52:04', '123333789123456', 'Seda', 'Bez', '1', '2', null, null);
+INSERT INTO Pes VALUES ('5', 'Colina', 'F', '2015-04-12 10:10:10', '165655646546546', 'Cerna', 'Bez', null, '2', '2', '4');
+INSERT INTO Pes VALUES ('10', 'COl', 'F', null, null, null, null, null, null, null, null);
+INSERT INTO Pes VALUES ('11', 'ADA', 'M', null, null, null, null, null, null, null, null);
+
+-- ----------------------------
+-- Records of Pes_mereni
+-- ----------------------------
+INSERT INTO Pes_mereni VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:09:51', '30', '50', '20');
+INSERT INTO Pes_mereni VALUES ('2', '2', 'zbalvi00', '2015-04-11 23:09:51', '32', '48', '20');
+INSERT INTO Pes_mereni VALUES ('3', '2', 'zbalvi00', '2015-04-11 23:09:51', '31', '48', '20');
+
+-- ----------------------------
+-- Records of Pes_oceneni
+-- ----------------------------
+INSERT INTO Pes_oceneni VALUES ('1', '4', '2015-02-14 23:06:53', 'Krasne mlade', 'Oceceni za nejkrasnejsi stenatko');
+INSERT INTO Pes_oceneni VALUES ('2', '4', '2015-02-14 23:06:53', 'Vonave nohy', 'Oceneni za vonave nohy');
+INSERT INTO Pes_oceneni VALUES ('3', '4', '2013-12-18 23:06:53', 'Redundantni oceneni', 'Koupene za penize');
+INSERT INTO Pes_oceneni VALUES ('4', '2', '2014-09-10 23:06:53', 'Nejlepsi rodicka', null);
+
+-- ----------------------------
+-- Records of Vakcina
+-- ----------------------------
+INSERT INTO Vakcina VALUES ('1', 'Vakcinol', 'Cervy', '30');
+INSERT INTO Vakcina VALUES ('2', 'Antinol', 'Blechy', '10');
+INSERT INTO Vakcina VALUES ('3', 'Kukurukuxol', 'Zivot', '300');
+INSERT INTO Vakcina VALUES ('4', 'Kvalitinol', 'Vse', '1');
+
+-- ----------------------------
+-- Records of Pes_vakcinace
+-- ----------------------------
+INSERT INTO Pes_vakcinace VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:05:03');
+INSERT INTO Pes_vakcinace VALUES ('1', '4', 'zbalvi00', '2015-04-11 23:05:19');
+INSERT INTO Pes_vakcinace VALUES ('4', '3', 'zbedna55', '2015-04-09 23:05:34');
+
+-- ----------------------------
+-- Records of Pes_vazeni
+-- ----------------------------
+INSERT INTO Pes_vazeni VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:09:51', '30');
+INSERT INTO Pes_vazeni VALUES ('2', '2', 'zbalvi00', '2015-04-11 23:09:51', '30');
+INSERT INTO Pes_vazeni VALUES ('3', '2', 'zbalvi00', '2015-04-11 23:09:51', '31');
 
 
--- Nastaveni prav (Grant ALL)
-GRANT ALL ON Chovna_stanice TO XBEDNA55;
-GRANT ALL ON Objednavka TO XBEDNA55;
-GRANT ALL ON Pes TO XBEDNA55;
-GRANT ALL ON Pes_mereni TO XBEDNA55;
-GRANT ALL ON Pes_oceneni TO XBEDNA55;
-GRANT ALL ON Pes_plemeno TO XBEDNA55;
-GRANT ALL ON Pes_vakcinace TO XBEDNA55;
-GRANT ALL ON Pes_vazeni TO XBEDNA55;
-GRANT ALL ON Uzivatel TO XBEDNA55;
-GRANT ALL ON Uzivatel_klient TO XBEDNA55;
-GRANT ALL ON Uzivatel_zamestnanec TO XBEDNA55;
-GRANT ALL ON Vakcina TO XBEDNA55;
-
--- Materializovany pohled
-DROP MATERIALIZED VIEW Pes_neprodano;
-CREATE MATERIALIZED VIEW Pes_neprodano AS
-SELECT DISTINCT * FROM Pes WHERE Pes.ID NOT IN (
- SELECT DISTINCT Objednavka.Pes_ID
- FROM Objednavka
- WHERE Objednavka.Stav = '1'
-);
--- Ukazka pouziti
-SELECT  Jmeno, Pohlavi, Cislo_cipu, Barva_srsti, Druh_srsti
-FROM Pes_neprodano;
+-- ----------------------------
+-- Records of Objednavka
+-- ----------------------------
+INSERT INTO Objednavka VALUES ('1', '1', '2015-04-10 23:14:15', '5000', '4', 'zkunca07');
+INSERT INTO Objednavka VALUES ('2', '1', '2013-06-18 23:14:56', '10000', '3', 'xlehne01');

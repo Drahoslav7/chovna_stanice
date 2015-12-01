@@ -12,15 +12,17 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 	{
 		$this->database = $database;
 	}
+
 	public function actionDefault()
 	{
-
+		$form = $this->createComponentSignInForm();
 	}
+
 	public function renderDefault()
 	{
-		$this->template->test = $this->database->table('test')
-			->limit(5);
+		$this->template->user = $this->getUser();
 	}
+
 	public function createComponentSignInForm()
 	{
 		$form = new Form;
@@ -30,6 +32,7 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 		$form->onSuccess[] = $this->signInFormSubmitted;
 		return $form;
 	}
+
 	public function signInFormSubmitted($form)
 	{
 		$values = $form->getValues();

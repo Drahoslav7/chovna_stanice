@@ -10,13 +10,13 @@ use Nette\Security as NS;
  * @author     John Doe
  * @package    MyApplication
  */
-class Authenticator extends Nette\Object implements NS\IAuthenticator {
+class Authenticator extends \Nette\Object implements NS\IAuthenticator {
 
-    /** @var \DibiConnection */
+    /** @var \Nette\Database\Context */
     private $db;
     private $table = "users";
 
-    public function __construct(Nette\Database\Context $connection) {
+    public function __construct(\Nette\Database\Context $connection) {
         $this->db = $connection;
     }
 
@@ -28,18 +28,13 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator {
      */
     public function authenticate(array $credentials) {
         list($username, $password) = $credentials;
-        $row = $this->db->select('*')->from($this->table)->where('email = %s', $username)->fetch();
+        $row = $this->db->table('Uzivatel')->where('Login', $username)->where('Heslo', hash('sha512', $password))->fetch();
 
         if (!$row) {
-            throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
+            throw new NS\AuthenticationException("Bad username or password", self::IDENTITY_NOT_FOUND);
         }
 
-        if ($row->password !== sha1($password . Users::$user_salt)) {
-            throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
-        }
-
-        unset($row->password);
-        return new NS\Identity($row->id, $row->role, $row->toArray());
+        return new NS\Identity($row->Login, $row->Role, $row->toArray());
     }
 
 }
