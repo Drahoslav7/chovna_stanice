@@ -9,12 +9,16 @@
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/font-awesome.min.css">
 	<script src="{$basePath}/js/jquery.min.js"></script>
 	<script src="{$basePath}/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+	{include 'menu.latte'}
 
 	{include content}
 

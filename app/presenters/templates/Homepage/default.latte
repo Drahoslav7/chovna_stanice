@@ -1,20 +1,4 @@
 {block content}
-<body>
-	<header>
-		<h1 n:block=title>Homepage</h1>
-	</header>
-
-	{foreach $test as $one}
-		<div>{$one[id]} {$one->name}</div>
-	{/foreach}
-
-	<br>
-	
-	<?php foreach ($test as $one): ?>
-		<div><?php echo $one['id'] . ' '. $one->name; ?></div>
-	
-	<?php endforeach; ?>
 
 
-</body>
 {/block}
