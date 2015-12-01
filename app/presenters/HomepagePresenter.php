@@ -28,5 +28,5 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 		$form->addPassword('password')->setRequired();
 		$form->addSubmit('send');
 		return $form;
-	}
+	}	
 }

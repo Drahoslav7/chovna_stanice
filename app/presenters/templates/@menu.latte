@@ -1,51 +1,51 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><span class="fa fa-github-alt"> Chovná stanice XYZ</a>
+    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+    	</button>
+    	<a class="navbar-brand" href="#"><span class="fa fa-github-alt"> Chovná stanice XYZ</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-				<li id="admin" class="hidden">
-					<a href="#"><i class="fa fa-lock"></i> Správce</a>
-				</li>
-				<li id="chov" class="hidden">
-					<a href="#"><i class="fa fa-lock"></i> Chovatel</a>
-				</li>
-				<li id="ucp" class="hidden">
-					<a href="#"><i class="fa fa-cog"></i> Uživatelský Panel</a>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> Přihlášení</a>
-					<ul class="dropdown-menu pull-left">
-						<li>
-								<form n:name=signInForm id="login-form" role="form">
-									<div class="form-group">
-											<input n:name=user class="form-control" placeholder="Uživatelské jméno" type="username">
-									</div>
-									<div class="form-group">
-											<input n:name=password class="form-control" placeholder="Heslo" type="password">
-									</div>
-									<button n:name=send type="submit" class="btn btn-default">
-											<span>Přihlášení</span>
-									</button>
+    	<ul class="nav navbar-nav navbar-right">
+			<li id="admin" class="hidden">
+				<a href="#"><i class="fa fa-lock"></i> Správce</a>
+			</li>
+			<li id="chov" class="hidden">
+				<a href="#"><i class="fa fa-lock"></i> Chovatel</a>
+			</li>
+			<li id="ucp" class="hidden">
+				<a href="#"><i class="fa fa-cog"></i> Uživatelský Panel</a>
+			</li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> Přihlášení</a>
+				<ul class="dropdown-menu pull-left">
+					<li>
+						<form n:name=signInForm id="login-form" role="form">
+							<div class="form-group">
+								<input n:name=user class="form-control" placeholder="Uživatelské jméno" type="username">
+							</div>
+							<div class="form-group">
+								<input n:name=password class="form-control" placeholder="Heslo" type="password">
+							</div>
+							<button n:name=send type="submit" class="btn btn-default">
+								<span>Přihlášení</span>
+							</button>
 
-									<div class="alert alert-danger hidden">
-											<i class="fa fa-times"></i> Špatná kombinace emailu a hesla
-									</div>
-							</form>
-						</li>
-					</ul>
-				</li>
-      </ul>
+							<div class="alert alert-danger hidden">
+								<i class="fa fa-times"></i> Špatná kombinace emailu a hesla
+							</div>
+						</form>
+					</li>
+				</ul>
+			</li>
+    	</ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
