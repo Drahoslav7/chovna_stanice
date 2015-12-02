@@ -1,3 +1,30 @@
 body {
-	padding-top: 70px;
+	padding-top: 49px;
+}
+
+#search-box {
+	float: right;
+	overflow: hidden;
+	margin: 10px 5px;
+	position: relative;
+	width: 300px;
+	margin-bottom: 0px;
+}
+
+#dog-grid {
+	margin-top: 45px;
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+}
+
+.grid-cell {
+	background-color: #608AE3;
+	border-radius: 7px;
+	height: 200px;
+	padding: 5px
+}
+
+.grid-cell-pad {
+	padding: 5px
 }
