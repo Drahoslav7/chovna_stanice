@@ -27,6 +27,19 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 		$form->addText('user')->setRequired();
 		$form->addPassword('password')->setRequired();
 		$form->addSubmit('send');
+		$form->onSuccess[] = $this->signInFormSubmitted;
 		return $form;
-	}	
+	}
+	public function signInFormSubmitted($form)
+	{
+		$values = $form->getValues();
+		$this->getUser()->setExpiration('+ 20 minutes', TRUE);
+		try {
+			$this->getUser()->login($values->user, $values->password);
+		} catch (Nette\Security\AuthenticationException $e) {
+			$form->addError($e->getMessage());
+			return;
+		}
+		$this->redirect('Homepage:');
+	}
 }
