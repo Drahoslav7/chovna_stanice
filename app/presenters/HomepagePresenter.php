@@ -15,7 +15,9 @@ class HomepagePresenter extends BasePresenter
 
 	public function actionLogout()
 	{
-		// TODO
+		$this->getUser()->logout();
+		$this->flashMessage('Byl jste odhlášen', 'success');
+		$this->redirect('Homepage:default');
 	}
 
 
@@ -45,6 +47,7 @@ class HomepagePresenter extends BasePresenter
 			$this->getUser()->login($values->user, $values->password);
 		} catch (Nette\Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());
+			$this->flashMessage('Špatné jméno nebo heslo','danger');
 			return;
 		}
 		$this->redirect('Homepage:');
