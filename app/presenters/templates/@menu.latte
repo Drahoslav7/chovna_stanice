@@ -14,20 +14,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     	<ul class="nav navbar-nav navbar-right">
-			<li id="admin" class="hidden">
-				<a href="#"><i class="fa fa-lock"></i> Správce</a>
+			{if $isAdmin}
+			<li id="adminDash">
+				<a href="#"><i class="fa fa-cog"></i> Správce</a>
 			</li>
-			<li id="chov" class="hidden">
-				<a href="#"><i class="fa fa-lock"></i> Chovatel</a>
+			{/if}
+			{if $isKeeper}
+			<li id="chovDash">
+				<a href="#"><i class="fa fa-cog"></i> Chovatel</a>
 			</li>
-			<li id="ucp" class="hidden">
-				<a href="#"><i class="fa fa-cog"></i> Uživatelský Panel</a>
+			{/if}
+			{if $isClient}
+			<li id="clientDash">
+				<a href="#"><i class="fa fa-user"></i> Uživatelský Panel</a>
 			</li>
+			<li id="logOut-button">
+				<a href="/homepage/logout"><i class="fa fa-sign-out"></i> Odhlásit</a>
+			</li>
+			{/if}
+			{if !$isClient}
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-user"></i> Přihlášení</a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-sign-in"></i> Přihlášení</a>
 				<ul class="dropdown-menu pull-left">
 					<li>
-						<form n:name=signInForm id="login-form" role="form">
+						<form action="/" n:name=signInForm id="login-form" role="form">
 							<div class="form-group">
 								<input n:name=user class="form-control" placeholder="Uživatelské jméno" type="username">
 							</div>
@@ -45,6 +55,7 @@
 					</li>
 				</ul>
 			</li>
+			{/if}
     	</ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

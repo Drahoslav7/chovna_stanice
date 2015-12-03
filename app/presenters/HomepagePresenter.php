@@ -18,9 +18,18 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 		$form = $this->createComponentSignInForm();
 	}
 
+	public function actionLogout()
+	{
+		// TODO
+	}
+
 	public function renderDefault()
 	{
 		$this->template->user = $this->getUser();
+		$user = $this->template->user;
+		$this->template->isAdmin = in_array("spravce", $user->getRoles());
+		$this->template->isKeeper = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()));
+		$this->template->isClient = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()) || in_array("klient", $user->getRoles()));
 	}
 
 	public function createComponentSignInForm()
