@@ -8,8 +8,8 @@ class KeeperPresenter extends BasePresenter
 {
 	public function actionDefault()
 	{
-		if ($this->template->isKeeper === true) {
-			$this->redirect("Keeper:dog");
+		if ($this->template->isClient === true) {
+			$this->redirect("Client:data");
 		} else {
 			$this->redirect("Homepage:default");
 		}
@@ -23,6 +23,12 @@ class KeeperPresenter extends BasePresenter
 
 
 	public function renderOrder()
+	{
+
+	}
+
+
+	public function renderData()
 	{
 
 	}
