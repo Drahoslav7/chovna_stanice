@@ -22,9 +22,16 @@ body {
 	background-color: #608AE3;
 	border-radius: 7px;
 	height: 200px;
-	padding: 5px
+	padding: 5px;
+	position: relative;
 }
 
 .grid-cell-pad {
-	padding: 5px
+	padding: 5px;
+}
+
+.cell-footer {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 5px;
 }

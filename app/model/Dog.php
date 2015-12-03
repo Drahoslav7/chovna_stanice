@@ -10,7 +10,12 @@ class Dog extends BaseModel {
 
     public function getDogs()
     {
-        return $this->db->table('pes')->fetch();
+        return $this->db->table('pes');
     }
+
+	public function getRaces()
+	{
+		return $this->db->table('pes_plemeno');
+	}
 
 }

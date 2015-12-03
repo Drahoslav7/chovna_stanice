@@ -25,6 +25,7 @@ class HomepagePresenter extends BasePresenter
 	{
 		$this->template->user = $this->getUser();
 		$this->template->dogs = $this->mDog->getDogs();
+		$this->template->races = $this->mDog->getRaces();
 	}
 
 

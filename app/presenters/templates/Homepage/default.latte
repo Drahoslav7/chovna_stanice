@@ -6,62 +6,26 @@
   </span>
 </div><!-- /input-group -->
 <div id="dog-grid">
+	{foreach $dogs as $item}
+	{if $iterator->getCounter() % 6 === 1}
 	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
+	{/if}
+		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
+			<div class="grid-cell">
+				<img></img>
+				<div class="cell-footer">
+					{$item->Jmeno} <i class="fa {$item->Pohlavi === "M" ? "fa-mars" : "fa-venus"}"></i> {$races[strval($item->Plemeno)]["Nazev"]}
+				</div>
+			</div>
+		</div>
+	{if $iterator->getCounter() % 6 === 0}
 	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
+	{/if}
+	{if $iterator->isLast() AND !($iterator->getCounter() % 6 === 0)}
 	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	</div>
-	<div class="row">
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	  <div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad"><div class="grid-cell">Hafíííík :) :)</div></div>
-	</div>
+	{/if}
+	{/foreach}
+
 </div>
 
 	<div>
