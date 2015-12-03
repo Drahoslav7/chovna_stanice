@@ -3,6 +3,8 @@
 namespace App\Presenters;
 use Nette;
 use Nette\Application\UI\Form;
+use App\Model;
+use App\Model\DogModel;
 
 class HomepagePresenter extends BasePresenter
 {
@@ -16,10 +18,13 @@ class HomepagePresenter extends BasePresenter
 		// TODO
 	}
 
+
 	public function renderDefault()
 	{
-
+		$this->template->user = $this->getUser();
+		$this->template->dogs = $this->mDog->getDogs();
 	}
+
 
 	public function createComponentSignInForm()
 	{
@@ -30,6 +35,7 @@ class HomepagePresenter extends BasePresenter
 		$form->onSuccess[] = $this->signInFormSubmitted;
 		return $form;
 	}
+
 
 	public function signInFormSubmitted($form)
 	{
@@ -43,4 +49,6 @@ class HomepagePresenter extends BasePresenter
 		}
 		$this->redirect('Homepage:');
 	}
+
+
 }

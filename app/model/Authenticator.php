@@ -6,17 +6,14 @@ use Nette\Security as NS;
 
 /**
  * Users authenticator.
- *
- * @author     John Doe
- * @package    MyApplication
  */
 class Authenticator extends \Nette\Object implements NS\IAuthenticator {
 
     /** @var \Nette\Database\Context */
     private $db;
-    private $table = "users";
 
-    public function __construct(\Nette\Database\Context $connection) {
+    public function __construct(\Nette\Database\Context $connection)
+    {
         $this->db = $connection;
     }
 
@@ -26,7 +23,8 @@ class Authenticator extends \Nette\Object implements NS\IAuthenticator {
      * @return Nette\Security\Identity
      * @throws Nette\Security\AuthenticationException
      */
-    public function authenticate(array $credentials) {
+    public function authenticate(array $credentials)
+    {
         list($username, $password) = $credentials;
         $row = $this->db->table('Uzivatel')->where('Login', $username)->where('Heslo', hash('sha512', $password))->fetch();
 

@@ -8,8 +8,11 @@ class BasePresenter extends Nette\Application\UI\Presenter
 {
 	/** @var Nette\Database\Context */
 	protected $database;
-	public function __construct(Nette\Database\Context $database)
+	protected $mDog;
+	
+	public function __construct(Nette\Database\Context $database, \App\Model\Dog $dogModel)
 	{
+	    $this->mDog = $dogModel;
 		$this->database = $database;
 	}
 
