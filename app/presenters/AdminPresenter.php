@@ -4,7 +4,7 @@ namespace App\Presenters;
 use Nette;
 use Nette\Application\UI\Form;
 
-class KeeperPresenter extends BasePresenter
+class AdminPresenter extends BasePresenter
 {
 	public function actionDefault()
 	{
