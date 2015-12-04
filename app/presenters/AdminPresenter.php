@@ -21,8 +21,14 @@ class AdminPresenter extends BasePresenter
 	
 
 
-	public function renderStaff()
+	public function renderStaff($id)
 	{
-		$this->template->staff = $this->mStaff->getStaff();
+		$this->template->member = NULL;
+		$this->template->staff = [];
+		if ($id) {
+			$this->template->member = $this->mStaff->getStaffByID($id);
+		} else {
+			$this->template->staff = $this->mStaff->getStaff();
+		}
 	}
 }

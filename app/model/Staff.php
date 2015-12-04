@@ -19,6 +19,11 @@ class Staff extends BaseModel {
         return $this->db->query('SELECT * FROM uzivatel JOIN uzivatel_zamestnanec USING (Login) ORDER BY Zkr_fce,Login');
     }
 
+    public function getStaffByID($id)
+    {
+    	return $this->db->table('uzivatel')->where('Login', $id)->fetch();
+    }
+
 	public function getFunction($funcCode)
 	{
 		return $funcArray[$funcCode];
