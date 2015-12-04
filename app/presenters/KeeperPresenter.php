@@ -7,13 +7,17 @@ use App\Model\DogModel;
 
 class KeeperPresenter extends BasePresenter
 {
+
+	public function startup()
+	{
+		parent::startup();
+		if ($this->template->isKeeper !== true) {
+			$this->redirect("Homepage:default");
+		} 
+	}
 	public function actionDefault()
 	{
-		if ($this->template->isKeeper === true) {
-			$this->redirect("Keeper:doglist");
-		} else {
-			$this->redirect("Homepage:default");
-		}
+		$this->redirect("Keeper:doglist");
 	}
 
 

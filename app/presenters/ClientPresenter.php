@@ -6,13 +6,17 @@ use Nette\Application\UI\Form;
 
 class ClientPresenter extends BasePresenter
 {
-	public function actionDefault()
-	{
-		if ($this->template->isClient === true) {
-			$this->redirect("Client:data");
-		} else {
+	public function startup()
+	{	
+		parent::startup();
+		if ($this->template->isClient !== true) {
 			$this->redirect("Homepage:default");
 		}
+	}
+
+	public function actionDefault()
+	{
+		$this->redirect("Client:data");
 	}
 
 

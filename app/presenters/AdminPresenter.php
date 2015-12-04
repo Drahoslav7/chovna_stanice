@@ -6,14 +6,17 @@ use Nette\Application\UI\Form;
 
 class AdminPresenter extends BasePresenter
 {
+	public function startup()
+	{
+		parent::startup();
+		if ($this->template->isAdmin !== true) {
+			$this->redirect("Homepage:default");
+		}
+	}
 
 	public function actionDefault()
 	{
-		if ($this->template->isAdmin === true) {
-			$this->redirect("Admin:staff");
-		} else {
-			$this->redirect("Homepage:default");
-		}
+		$this->redirect("Admin:Staff");
 	}
 	
 
