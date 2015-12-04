@@ -6,6 +6,7 @@ use Nette\Application\UI\Form;
 
 class AdminPresenter extends BasePresenter
 {
+
 	public function actionDefault()
 	{
 		if ($this->template->isAdmin === true) {
@@ -14,10 +15,11 @@ class AdminPresenter extends BasePresenter
 			$this->redirect("Homepage:default");
 		}
 	}
+	
 
 
 	public function renderStaff()
 	{
-
+		$this->template->staff = $this->mStaff->getStaff();
 	}
 }

@@ -5,22 +5,23 @@
 	<button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
   </span>
 </div><!-- /input-group -->
+
 <div id="dog-grid">
 	<div class="row">
 	{foreach $dogs as $dog}
 		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 			<div class="grid-cell">
-				<a href="/client/dog">
-					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$dog->ID}.jpg"></img>
+				<a href="/client/dog/{$dog->ID}">
+					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$dog->ID}.jpg">
 				</a>
 				<div class="cell-footer">
 					<div class="cell-footer-text">
 						<div class="row">
 							<div class="col-md-5 text-left">
-								<i class="fa {$dog->Pohlavi === "M" ? "fa-mars" : "fa-venus"}"></i> {$dog->Jmeno}
+								<i class="fa {$dog->Pohlavi === "M" ? "fa-mars" : "fa-venus"} fa-fw"></i> {$dog->Jmeno}
 							</div>
 							<div class="col-md-7 text-right">
-								{$dog->Plemeno}
+								{$dog->NazevPlemena}
 							</div>
 						</div>
 					</div>

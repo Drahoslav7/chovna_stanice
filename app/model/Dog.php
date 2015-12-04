@@ -10,7 +10,7 @@ class Dog extends BaseModel {
 
     public function getDogs()
     {
-        return $this->db->query('SELECT * FROM pes JOIN (SELECT ID as ID_2, Nazev AS Plemeno FROM pes_plemeno ) AS plemeno  WHERE plemeno.ID_2 = Plemeno_ID');
+        return $this->db->query('SELECT ps.*, pp.Nazev AS NazevPlemena FROM pes ps JOIN pes_plemeno pp ON ps.plemeno_ID = pp.ID;');
     }
 
 	public function getRaces()

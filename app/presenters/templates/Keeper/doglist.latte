@@ -6,23 +6,23 @@
   </span>
 </div><!-- /input-group -->
 <div id="dog-grid">
-	{foreach $dogs as $item}
+	{foreach $dogs as $dog}
 	{if $iterator->getCounter() % 6 === 1}
 	<div class="row">
 	{/if}
 		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 			<div class="grid-cell">
-				<a href="/keeper/dog">
-					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$item->ID}.jpg">
+				<a href="/keeper/dog/{$dog->ID}">
+					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$dog->ID}.jpg">
 				</a>
 				<div class="cell-footer">
 					<div class="cell-footer-text">
 						<div class="row">
 							<div class="col-md-5 text-left">
-								<i class="fa {$item->Pohlavi === "M" ? "fa-mars" : "fa-venus"}"></i> {$item->Jmeno}
+								<i class="fa {$dog->Pohlavi === "M" ? "fa-mars" : "fa-venus"}"></i> {$dog->Jmeno}
 							</div>
 							<div class="col-md-7 text-right">
-								{$races[strval($item->Plemeno)]["Nazev"]}
+								{$dog->NazevPlemena}
 							</div>
 						</div>
 					</div>

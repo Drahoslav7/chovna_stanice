@@ -377,19 +377,23 @@ INSERT INTO Chovna_stanice VALUES ('1', 'Utulek kamaradu', 'Prazska', 'Praha', '
 -- ----------------------------
 -- Records of Pes_plemeno
 -- ----------------------------
-INSERT INTO Pes_plemeno VALUES ('1', 'Jack Russel Terier', '30', '5', 'UK', 'Pratelsky pes');
-INSERT INTO Pes_plemeno VALUES ('2', 'Border Kolie', '50', '17', 'UK', 'Aktivni pes');
+INSERT INTO `pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Zeme_puvodu`, `Popis`) VALUES
+(1, 'Jack Russel Terier', 30, 5, 'UK', 'Pratelsky pes'),
+(2, 'Border Kolie', 50, 17, 'UK', 'Aktivni pes'),
+(3, 'Jezevcik', 50, 17, 'UK', 'Dlouhy pes');
 
 -- ----------------------------
 -- Records of Pes
 -- ----------------------------
-INSERT INTO Pes VALUES ('1', 'Rex', 'M', '2012-03-12 22:52:04', '123929652976738', 'Bila', 'Rex', null, '1', null, null);
-INSERT INTO Pes VALUES ('2', 'Rita', 'F', '2012-04-12 22:52:04', '123456755234574', 'Cerna', 'Bez', null, '1', null, null);
-INSERT INTO Pes VALUES ('3', 'Lajka', 'F', '2013-12-18 22:52:04', '123433690123456', 'Cernobila', 'Rex', null, '1', '2', '1');
-INSERT INTO Pes VALUES ('4', 'Colin', 'M', '2015-01-14 22:52:04', '123333789123456', 'Seda', 'Bez', '1', '2', null, null);
-INSERT INTO Pes VALUES ('5', 'Colina', 'F', '2015-04-12 10:10:10', '165655646546546', 'Cerna', 'Bez', null, '2', '2', '4');
-INSERT INTO Pes VALUES ('10', 'COl', 'F', null, null, null, null, null, null, null, null);
-INSERT INTO Pes VALUES ('11', 'ADA', 'M', null, null, null, null, null, null, null, null);
+INSERT INTO `pes` (`ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`) VALUES
+(1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL),
+(3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1),
+(4, 'Colin', 'M', '2015-01-14', 123333789123456, 'Seda', 'Bez', 1, 2, NULL, NULL),
+(5, 'Colina', 'F', '2015-04-12', 165655646546546, 'Cerna', 'Bez', NULL, 2, 2, 4),
+(6, 'Rexss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(7, 'Rexssss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(8, 'Ferda', 'M', '2012-03-12', 123929652976738, 'Hneda', 'Hladka', NULL, 3, NULL, NULL);
 
 -- ----------------------------
 -- Records of Pes_mereni

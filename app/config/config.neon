@@ -22,3 +22,4 @@ services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\Model\Authenticator
 	dog: App\Model\Dog
+	staff: App\Model\Staff	

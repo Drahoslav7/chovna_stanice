@@ -9,10 +9,12 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	/** @var Nette\Database\Context */
 	protected $database;
 	protected $mDog;
+	protected $mStaff;
 
-	public function __construct(Nette\Database\Context $database, \App\Model\Dog $dogModel)
+	public function __construct(Nette\Database\Context $database, \App\Model\Dog $dogModel, \App\Model\Staff $staffModel)
 	{
 	    $this->mDog = $dogModel;
+		$this->mStaff = $staffModel;
 		$this->database = $database;
 	}
 

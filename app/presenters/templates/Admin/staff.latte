@@ -1,18 +1,43 @@
 {block content}
 <div id="search-box" class="input-group">
-  <input type="text" class="form-control" placeholder="Vyhledat psa..">
+  <input type="text" class="form-control" placeholder="Vyhledat zaměstnance..">
   <span class="input-group-btn">
 	<button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
   </span>
 </div><!-- /input-group -->
-<div id="dog-grid">
-	
-</div>
 
-	<div>
-	loged as: '{$user->getId()}'
-	with role: '{$user->getRoles()[0]}'
+<div id="staff-grid">
+	{foreach $staff as $member}
+	{if $iterator->getCounter() % 6 === 1}
+	<div class="row">
+	{/if}
+		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
+			<div class="grid-cell">
+				<a href="/admin/staff/{$member->Login}">
+					<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg"></img>
+				</a>
+				<div class="cell-footer">
+					<div class="cell-footer-text">
+						<div class="row">
+							<div class="col-xs-10 text-left">
+								{$member->Jmeno} {$member->Prijmeni}
+							</div>
+							<div class="col-xs-2 text-right">
+								<i class="fa {$member->Zkr_fce === "CHV" ? "fa-paw" : "fa-user"}"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{if $iterator->getCounter() % 6 === 0}
 	</div>
+	{/if}
+	{if $iterator->isLast() AND !($iterator->getCounter() % 6 === 0)}
+	</div>
+	{/if}
+	{/foreach}
 
+</div>
 
 {/block}
