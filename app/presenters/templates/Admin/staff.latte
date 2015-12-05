@@ -56,30 +56,35 @@
   						<div class="panel-heading">Základní údaje</div>
   						<div class="panel-body">
 							<form>
+								<label>Uživatelský Login</label>
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
+									<input class="form-control" type="name">
+								</div>
+								<label>Heslo</label>
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+									<input class="form-control" type="password">
+								</div>
+								<br>
 								<div class="form-group">
 							        <div class="row">
 							            <div class="col-md-6">
 											<label>Jméno</label>
-											<input class="form-control" type="name" placeholder="Jméno">
+											<input class="form-control" type="name">
 							            </div>
 							            <div class="col-md-6">
 											<label>Příjmení</label>
-											<input class="form-control" type="name" placeholder="Příjmení">
+											<input class="form-control" type="name">
 							            </div>
 							        </div>
 							    </div>
-								<label>Heslo</label>
-								<div class="input-group">
-									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-									<input class="form-control" type="password" placeholder="Heslo">
-								</div>
-								<br>
 								<div class="form-group">
 							        <div class="row">
 										<div class="col-md-6">
 											<label>Plat</label>
 											<div class="input-group">
-										      <input type="text" class="form-control" id="exampleInputAmount" placeholder="0">
+										      <input type="text" class="form-control" id="exampleInputAmount">
 										      <div class="input-group-addon">Kč</div>
 										    </div>
 										</div>
@@ -87,14 +92,14 @@
 											<label>Funkce</label>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-											    Správce
+											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+											    Chovatel
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-											    Chovatel
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+											    Správce
 											  </label>
 											</div>
 										</div>
@@ -111,11 +116,11 @@
 							        <div class="row">
 							            <div class="col-md-6">
 											<label>Ulice</label>
-											<input class="form-control" type="name" placeholder="Jméno">
+											<input class="form-control" type="name">
 							            </div>
 							            <div class="col-md-6">
 											<label>Město</label>
-											<input class="form-control" type="name" placeholder="Příjmení">
+											<input class="form-control" type="name">
 							            </div>
 							        </div>
 							    </div>
@@ -123,18 +128,21 @@
 							        <div class="row">
 							            <div class="col-md-6">
 											<label>PSČ</label>
-											<input class="form-control" type="name" placeholder="Jméno">
+											<input class="form-control" type="name">
 							            </div>
 							            <div class="col-md-6">
 											<label>Telefon</label>
-											<input class="form-control" type="name" placeholder="Příjmení">
+											<div class="input-group">
+										      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+										      <input type="text" class="form-control" id="exampleInputAmount">
+										    </div>
 							            </div>
 							        </div>
 							    </div>
 								<label>E-mail</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
-									<input class="form-control" type="password" placeholder="Heslo">
+									<input class="form-control" type="email">
 								</div>
 						</div>
 					</div>
