@@ -30,11 +30,13 @@
 			<li id="clientDash">
 				<a href="/client/order"><i class="fa fa-user"></i> Uživatelský Panel</a>
 			</li>
+			{/if}
+			{if !$isGuest}
 			<li id="logOut-button">
 				<a href="/homepage/logout"><i class="fa fa-sign-out"></i> Odhlásit</a>
 			</li>
 			{/if}
-			{if !$isClient}
+			{if $isGuest}
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-sign-in"></i> Přihlášení</a>
 				<ul class="dropdown-menu pull-left">

@@ -25,6 +25,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$user = $this->template->user;
 		$this->template->isAdmin = in_array("spravce", $user->getRoles());
 		$this->template->isKeeper = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()));
-		$this->template->isClient = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()) || in_array("klient", $user->getRoles()));
+		$this->template->isGuest = !(in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()) || in_array("klient", $user->getRoles()));
+		$this->template->isClient = in_array("klient", $user->getRoles());
 	}
 }
