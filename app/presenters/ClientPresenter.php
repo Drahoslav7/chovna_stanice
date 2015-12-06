@@ -26,9 +26,9 @@ class ClientPresenter extends BasePresenter
 	}
 
 
-	public function renderOrder()
+	public function renderOrder($login)
 	{
-
+		$this->template->orders = $this->mOrder->getOrdersByLogin($login);
 	}
 
 

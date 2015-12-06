@@ -1,7 +1,7 @@
 body {
 	padding-top: 49px;
-	min-width:420px; /* suppose you want minimun width of 1000px */
-	width: auto !important;  /* Firefox will set width as auto */
+	min-width:420px;
+	width: auto !important;
 	width:420px;
 }
 
@@ -14,14 +14,7 @@ body {
 	margin-bottom: 0px;
 }
 
-#dog-grid {
-	margin-top: 45px;
-	padding-left: 20px;
-	padding-right: 20px;
-	overflow: hidden;
-}
-
-#staff-grid {
+#dog-grid, #staff-grid, #order-grid  {
 	margin-top: 45px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -64,6 +57,12 @@ body {
 	opacity: 1;
 }
 
+.dog-sold-mark {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .grid-cell-pad {
 	padding: 5px;
 }
@@ -99,4 +98,8 @@ body {
 .img-resp-c2 {
 	min-height: 200px;
 	min-width: 200px;
+}
+
+.btn-c {
+	color: #000000;
 }

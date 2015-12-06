@@ -4,7 +4,8 @@
   <span class="input-group-btn">
 	<button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
   </span>
-</div><!-- /input-group -->
+</div>
+
 <div id="dog-grid">
 	<div class="row">
 	{foreach $dogs as $dog}
@@ -42,6 +43,127 @@
 	</div>
 
 </div>
+
+	<div id="new-dog-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat psa</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<div class="panel panel-default">
+  						<div class="panel-heading">Základní údaje</div>
+  						<div class="panel-body">
+							<form>
+								<div class="form-group">
+							        <div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Jméno</label>
+												<input class="form-control" type="name">
+							  				</div>
+										</div>
+							            <div class="col-md-3 col-md-offset-2">
+											<label>Pohlaví</label>
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+											    Samec
+											  </label>
+											</div>
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+											    Samice
+											  </label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="panel panel-default">
+  						<div class="panel-heading">Detaily</div>
+  						<div class="panel-body">
+							<form>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Číslo Čipu</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>Plemeno</label>
+											<input class="form-control" type="name">
+							            </div>
+							        </div>
+							    </div>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Barva Srsti</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>Druh Srsti</label>
+											<input type="text" class="form-control" id="exampleInputAmount">
+							            </div>
+							        </div>
+							    </div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+  						<div class="panel-heading">Původ</div>
+  						<div class="panel-body">
+							<form>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Otec</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>Matka</label>
+											<input class="form-control" type="name">
+							            </div>
+							        </div>
+							    </div>
+									<label>Chovná stanice</label>
+									<input class="form-control" type="name">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-dog-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="/admin/add-dog/1">
+						<button id="confirm-dog-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="confirm-dog-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Varování</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete odstranit psa Tato akce je nevratná!
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-dog-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="/admin/delete-dog/{$dog->ID}">
+						<button id="confirm-dog-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</button>
+					</a>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <script>
 $("#new-dog-button").click(function(){

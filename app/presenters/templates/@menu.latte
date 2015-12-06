@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 			<span class="sr-only">Toggle navigation</span>
@@ -11,29 +10,32 @@
 		<a class="navbar-brand" href="/"><span class="fa fa-paw"></span> Chovná stanice XYZ</a>
 	</div>
 
-	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
-
-
 			{if $isAdmin}
-			<li id="adminDash">
-				<a href="/admin/staff"><i class="fa fa-cog"></i> Správce</a>
+			<li class="btn-danger">
+				<a href="/admin/staff"><span class="btn-c"><i class="fa fa-cog"></i> Správa uživatelů</span></a>
 			</li>
 			{/if}
 			{if $isKeeper}
-			<li id="chovDash">
-				<a href="/keeper/doglist"><i class="fa fa-cog"></i> Chovatel</a>
+			<li class="btn-info">
+				<a href="/keeper/doglist"><span class="btn-c"><i class="fa fa-cog"></i> Správa psů</span></a>
 			</li>
+			<li class="btn-info">
+				<a href="/keeper/order"><span class="btn-c"><i class="fa fa-cog"></i> Objednávky</span></a>
+			</li>		
 			{/if}
 			{if $isClient}
-			<li id="clientDash">
-				<a href="/client/order"><i class="fa fa-user"></i> Uživatelský Panel</a>
+			<li class="btn-info">
+				<a href="/client/data"><span class="btn-c"><i class="fa fa-user"></i> Fakturační údaje</span></a>
+			</li>
+			<li class="btn-info">
+				<a href="/client/order"><span class="btn-c"><i class="fa fa-credit-card"></i> Objednávky</span></a>
 			</li>
 			{/if}
 			{if !$isGuest}
-			<li id="logOut-button">
-				<a href="/homepage/logout"><i class="fa fa-sign-out"></i> Odhlásit</a>
+			<li id="logOut-button" class="btn-default">
+				<a href="/homepage/logout"><span class="btn-c"><i class="fa fa-sign-out"></i> Odhlásit</span></a>
 			</li>
 			{/if}
 			{if $isGuest}
@@ -61,8 +63,8 @@
 			</li>
 			{/if}
 		</ul>
-	</div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+	</div>
+  </div>
 	{foreach $flashes as $flash}
 		<div class="alert alert-{$flash->type}">{$flash->message}</div>
 	{/foreach}

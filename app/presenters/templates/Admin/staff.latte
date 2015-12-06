@@ -14,16 +14,14 @@
 	  <span class="input-group-btn">
 		<button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
 	  </span>
-	</div><!-- /input-group -->
+	</div>
 
 	<div id="staff-grid">
 		<div class="row">
 		{foreach $staff as $member}
 			<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 				<div class="grid-cell">
-					<a href="/admin/staff/{$member->Login}">
-						<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg"></img>
-					</a>
+					<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg"></img>
 					<button type="button" class="btn btn-default confirm-member-delete-button"><i class="fa fa-times"></i></button>
 					<div class="cell-footer">
 						<div class="cell-footer-text">
@@ -71,7 +69,7 @@
 								<label>Heslo</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-									<input class="form-control" type="password">
+									<input class="form-control" type="password" value="">
 								</div>
 								<br>
 								<div class="form-group">
@@ -99,13 +97,13 @@
 											<label>Funkce</label>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option2" checked>
 											    Chovatel
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
 											    Správce
 											  </label>
 											</div>
@@ -136,16 +134,16 @@
 							            <div class="col-md-6">
 											<label>PSČ</label>
 											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
+										</div>
+										<div class="col-md-6">
 											<label>Telefon</label>
 											<div class="input-group">
-										      <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-										      <input type="text" class="form-control" id="exampleInputAmount">
-										    </div>
-							            </div>
-							        </div>
-							    </div>
+												<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+												<input type="text" class="form-control" id="exampleInputAmount">
+											</div>
+										</div>
+									</div>
+								</div>
 								<label>E-mail</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
@@ -156,7 +154,7 @@
 				</div>
 				<div class="modal-footer">
 					<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-					<a href="/admin/deletestaff/1">
+					<a href="/admin/add-staff/1">
 						<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
 					</a>
 				</div>
@@ -175,7 +173,7 @@
 				</div>
 				<div class="modal-footer">
 					<button id="cancel-user-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-					<a href="/admin/deletestaff/1">
+					<a href="/admin/delete-staff/{$member->Login}">
 						<button id="confirm-user-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</button>
 					</a>
 				</div>
