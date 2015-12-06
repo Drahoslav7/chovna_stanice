@@ -6,25 +6,41 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="well well-c">
-							<img class="img-responsive img-resp-c2" src="{$basePath}/img/dogs/1.jpg"></img>
+							<img class="img-responsive img-resp-c2" src="{$basePath}/img/dogs/{$dog->ID}.jpg"></img>
 						</div>
 					</div>
 					<div class="col-md-12">
-							<ul class="list-group">
-								<li class="list-group-item">Poslední měření:</li>
-							    <li class="list-group-item">Poslední vážění:</li>
-							    <li class="list-group-item">Poslední vakcinace:</li>
-							    <li class="list-group-item">Získané ceny:</li>
-							  <li class="list-group-item">Dapibus ac facilisis in</li>
-							  <li class="list-group-item">Morbi leo risus</li>
-							  <li class="list-group-item">Porta ac consectetur ac</li>
-							  <li class="list-group-item">Vestibulum at eros</li>
-							</ul>
-
+							<div id="dog-side-panel" class="btn-group-vertical">
+								<div id="new-order-button" class="btn btn-default">
+									<i class="fa fa-credit-card fa-fw"></i> Vytvořit objednávku
+								</div>
+								<div id="family-tree-button" class="btn btn-default">
+									<i class="fa fa-pagelines fa-fw"></i> Sestavit rodokmen
+								</div>
+							</div>
 					</div>
       			</div>
 			</div>
       		<div class="col-md-9">
+				
+				<hr class="col-md-12">
+					<div class="row">
+						<div class="col-xs-12 col-md-8">
+							<div class="btn-group btn-group-c2">
+									<div class="btn btn-info btn-group-c">Jméno: {$dog->Jmeno}</div>
+									<div class="btn btn-default btn-group-c">Pohlaví: <i class="fa {$dog->Pohlavi === "M"?"fa-mars":"fa-venus"}"></i> {$dog->Pohlavi === "M"?"Samec":"Samice"}</div>
+									<div class="btn btn-default btn-group-c">Rasa: {$dog->NazevPlemena }</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4">
+							<div class="panel panel-success">
+								 <div class="panel-heading">
+									<div class="panel-title">Cena: {$dog->NazevPlemena }</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
               	<hr class="col-md-12">
               	Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
                 dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores

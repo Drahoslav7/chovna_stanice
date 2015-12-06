@@ -22,15 +22,21 @@ class KeeperPresenter extends BasePresenter
 	}
 
 
-	public function renderDog()
+	public function renderDog($id)
 	{
-
+		$id = 7; //TODO Make this dynamic
+		$this->template->dog = NULL;
+		$this->template->dogs = [];
+		if ($id) {
+			$this->template->dog = $this->mDog->getDogByID($id);
+		} else {
+			$this->template->dogs = $this->mDog->getDogs();
+		}
 	}
-
+	
 	public function renderDoglist()
 	{
 		$this->template->dogs = $this->mDog->getDogs();
-		$this->template->races = $this->mDog->getRaces();
 	}
 
 
