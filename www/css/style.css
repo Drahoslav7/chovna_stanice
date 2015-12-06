@@ -109,10 +109,6 @@ body {
 	padding: 10px 0 10px 0;
 }
 
-#dog-side-panel.btn-group-vertical {
-	display: inline;
-}
-
 #measure-history, #weighting-history, #trophy-history, #preventive-history {
 	max-height: 100px;
 	overflow-y: auto;
