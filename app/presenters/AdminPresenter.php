@@ -14,11 +14,22 @@ class AdminPresenter extends BasePresenter
 		}
 	}
 
+
 	public function actionDefault()
 	{
 		$this->redirect("Admin:Staff");
 	}
+
 	
+	public function actionDeleteStaff($id)
+	{
+		if ($this->mStaff->deleteStaff($id)) {
+			$this->flashMessage("Chovatel $id smazán", 'success');
+		} else {
+			$this->flashMessage("Chovatele $id se nepodařilo smazat", 'danger');
+		}
+		$this->redirect("Admin:Staff");
+	}
 
 
 	public function renderStaff($id)

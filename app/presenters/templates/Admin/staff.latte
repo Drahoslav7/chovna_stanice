@@ -1,5 +1,12 @@
 {block content}
 
+{* single member profile *}
+{if $member}
+	<div>
+		{$member->Jmeno} {$member->Prijmeni} {* TODO include? *}
+	</div>
+{/if}
+
 {* staff list *}
 {if $staff}
 	<div id="search-box" class="input-group">

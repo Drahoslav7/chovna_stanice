@@ -14,15 +14,20 @@ class Staff extends BaseModel {
 		"SPR" => "Správce",
 	];
 
-    public function getStaff()
-    {
-        return $this->db->query('SELECT * FROM uzivatel JOIN uzivatel_zamestnanec USING (Login) ORDER BY Zkr_fce,Login');
-    }
+	public function getStaff()
+	{
+		return $this->db->query('SELECT * FROM uzivatel JOIN uzivatel_zamestnanec USING (Login) WHERE !_deleted ORDER BY Zkr_fce,Login');
+	}
 
-    public function getStaffByID($id)
-    {
-    	return $this->db->table('uzivatel')->where('Login', $id)->fetch();
-    }
+	public function getStaffByID($id)
+	{
+		return $this->db->table('uzivatel')->where('Login', $id)->fetch();
+	}
+
+	public function deleteStaff($id)
+	{
+		return $this->db->query('UPDATE uzivatel SET _deleted = 1 WHERE Login=?', $id);
+	}
 
 	public function getFunction($funcCode)
 	{

@@ -15,8 +15,21 @@ class KeeperPresenter extends BasePresenter
 			$this->redirect("Homepage:default");
 		} 
 	}
+
+
 	public function actionDefault()
 	{
+		$this->redirect("Keeper:doglist");
+	}
+
+
+	public function actionDeleteDog($id)
+	{
+		if ($this->mDog->deleteDog($id)) {
+			$this->flashMessage("Pes s id  $id smazán", 'success');
+		} else {
+			$this->flashMessage("Psa s $id se nepodařilo smazat", 'danger');
+		}
 		$this->redirect("Keeper:doglist");
 	}
 
@@ -25,6 +38,7 @@ class KeeperPresenter extends BasePresenter
 	{
 
 	}
+
 
 	public function renderDoglist()
 	{
