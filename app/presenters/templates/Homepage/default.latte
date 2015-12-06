@@ -11,7 +11,7 @@
 	{foreach $dogs as $dog}
 		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 			<div class="grid-cell">
-				<a href="/client/dog/{$dog->ID}">
+				<a href="{if $isClient}/client/{elseif $isGuest}/guest/{else}/keeper/{/if}dog/{$dog->ID}">
 					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$dog->ID}.jpg">
 				</a>
 				<div class="cell-footer">

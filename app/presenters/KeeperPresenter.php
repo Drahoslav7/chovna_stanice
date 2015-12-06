@@ -4,6 +4,7 @@ namespace App\Presenters;
 use Nette;
 use Nette\Application\UI\Form;
 use App\Model\DogModel;
+use App\Model\OrderModel;
 
 class KeeperPresenter extends BasePresenter
 {
@@ -33,8 +34,14 @@ class KeeperPresenter extends BasePresenter
 	}
 
 
-	public function renderOrder()
+	public function renderOrder($login)
 	{
-
+		$this->template->order = NULL;	
+		$this->template->orders = [];
+		if ($login) {
+			$this->template->order = $this->mOrder->getOrdersByLogin($login);
+		} else {
+			$this->template->orders = $this->mOrder->getOrder();
+		}
 	}
 }
