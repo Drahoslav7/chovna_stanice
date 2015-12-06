@@ -105,16 +105,16 @@ body {
 }
 
 .btn-group-c {
-	width: 33%;
 	height: 45px;
 	padding: 10px 0 10px 0;
 }
 
-.btn-group-c2 {
-	width: 100%;
-	height: 45px;
-}
-
 #dog-side-panel.btn-group-vertical {
 	display: inline;
+}
+
+#measure-history, #weighting-history, #trophy-history, #preventive-history {
+	max-height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
