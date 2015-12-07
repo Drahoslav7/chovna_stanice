@@ -44,12 +44,12 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->isKeeper = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()));
 		$this->template->isGuest = !(in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()) || in_array("klient", $user->getRoles()));
 		$this->template->isClient = in_array("klient", $user->getRoles());
+		$loginForm = $this->createComponentSignInForm();
+		$registerForm = $this->createComponentRegisterForm();
 	}
 	
 	public function actionDefault()
 	{
-		$loginForm = $this->createComponentSignInForm();
-		$registerForm = $this->createComponentRegisterForm();
 	}
 
 	public function actionLogout()
@@ -59,9 +59,11 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->redirect('Homepage:default');
 	}
 	
-	public function createComponentSignInForm()
+	protected function createComponentSignInForm()
 	{
 		$form = new Form;
+		$form->setMethod('POST');
+
 		$form->addText('user')->setRequired();
 		$form->addPassword('password')->setRequired();
 		$form->addSubmit('send');
@@ -84,9 +86,11 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->redirect('Homepage:');
 	}
 
-	public function createComponentRegisterForm()
+	protected function createComponentRegisterForm()
 	{
 		$form = new Form;
+		$form->setMethod('POST');
+
 		$form->addText('login')
 			->setRequired()
 			->addRule(Form::MAX_LENGTH, 'Login smí mít maximálně %d znaků.', 10);;

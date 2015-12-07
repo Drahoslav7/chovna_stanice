@@ -7,9 +7,63 @@ use Nette;
 class Users extends BaseModel {
 
 
+	/**
+	 * Registrace clienta
+	 */
 	public function register($values)
 	{
-		// var_dump($values);
+		// $this->db->beginTransaction();
+		$ok = $this->newUser($values, 'klient');
+		if($ok){
+			$this->db->table("uzivatel_klient")->insert(array(
+				'Login' => $values->login,
+				'F_Ulice' => $values->f_street,
+				'F_Mesto' => $values->f_city,
+				'F_PSC' => $values->f_postCode,
+			));
+			// $this->db->commit();
+			return true;
+		} else {
+			// $this->db->rollback();
+			return false;
+		}
+
+	}
+
+	/**
+	 * Ruční vytvoření zaměstnance adminem
+	 */
+	public function add($values)
+	{
+		$role;
+		switch ($values->role){
+			case 'admin':
+				$role = 'spravce';
+				break;
+			case 'keeper':
+				$role = 'chovatel';
+				break;
+			default:
+				return false;
+		}
+		// $this->db->beginTransaction();
+
+		$ok = $this->newUser($values, $role);
+		if($ok){
+			$this->db->table("uzivatel_klient")->insert(array(
+				'Login' => $values->login,
+				'Plat' => $values->salary
+			));
+			// $this->db->commit();
+			return true;
+		} else {
+			// $this->db->rollback();
+			return false;
+		}
+	}
+
+	private function newUser($values, $role)
+	{
 		$ok = $this->db->table("uzivatel")->insert(array(
 			'Login' => $values->login,
 			'Heslo' => hash('sha512', $values->password),
@@ -20,21 +74,9 @@ class Users extends BaseModel {
 			'K_PSC' => $values->postCode,
 			'K_Telefon' => $values->phone,
 			'Email' => $values->email,
-			'Role' => "klient"
+			'Role' => $role
 		));
-		$ok = true; // TODO overit zda se poved predchozi dotaz
-		if($ok){
-			$this->db->table("uzivatel_klient")->insert(array(
-				'Login' => $values->login,
-				'F_Ulice' => $values->f_street,
-				'F_Mesto' => $values->f_city,
-				'F_PSC' => $values->f_postCode,
-			));
-			return true;
-		} else {
-			return false;
-		}
-
+		return true; // TODO overit
 	}
 
 }

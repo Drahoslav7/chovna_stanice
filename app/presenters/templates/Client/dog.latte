@@ -40,10 +40,23 @@
 							</div>
 						</div>
 					</div>
+				{if $order}		
+				<div class="panel {if $order->Stav===1}panel-info{elseif $order->Stav===2}panel-danger{else}panel-success{/if}">
+					<div class="panel-heading">
+						{if $order->Stav===1}
+						<i class="fa fa-clock-o fa-2x fa-fw"></i> Vaše objednávka na tohoto psa se právě vyřizuje
+						{elseif $order->Stav===2}
+						<i class="fa fa-times fa-2x fa-fw"></i> Vaše objednávka byla bohužel zamítnuta. V případě dotazů prosím kontaktujte správce stránek
+						{else}
+						<i class="fa fa-check fa-2x fa-fw"></i> Vaše objednávka byla úspěšně vyřízena, očekávejte brzké kontaktování!
+						{/if}
+					</div>
+				</div>
+				{/if}
 				
               	<hr class="col-md-12">
               	Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+                dictaNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
                 eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
                 sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
                 Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
@@ -57,5 +70,31 @@
   	</div>
 </div>
 
+	<div id="new-order-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Potvrdit objednávku</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete vytvořit novou objednávku na tohoto psa?
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-new-order" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="#" id="new-order" class="btn btn-success"><i class="fa fa-check"></i> Objednat</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<script>
+$("#new-order-button").click(function(){
+	$("#new-order-modal").modal("show");
+});
+$("#cancel-new-order").click(function(){
+	$("#new-order-modal").modal("hide");
+});
+
+</script>
 
 {/block}

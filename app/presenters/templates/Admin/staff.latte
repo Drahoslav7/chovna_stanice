@@ -30,7 +30,7 @@
 									{$member->Jmeno} {$member->Prijmeni}
 								</div>
 								<div class="col-xs-2 text-right">
-									<i class="fa {$member->Zkr_fce === "CHV" ? "fa-paw" : "fa-user"}"></i>
+									<i class="fa {$member->Role=== "chovatel" ? "fa-paw" : "fa-user"}"></i>
 								</div>
 							</div>
 						</div>
@@ -52,93 +52,91 @@
 	<div id="new-user-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat uživatele</h3>
-				</div>
-				<div class="modal-body text-justify">
-					<div class="panel panel-default">
-  						<div class="panel-heading">Základní údaje</div>
-  						<div class="panel-body">
-							<form>
+				<form n:name=addMemberForm>
+					<div class="modal-header">
+						<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat uživatele</h3>
+					</div>
+					<div class="modal-body text-justify">
+						<div class="panel panel-default">
+							<div class="panel-heading">Základní údaje</div>
+							<div class="panel-body">
 								<label>Uživatelský Login</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-									<input class="form-control" type="name">
+									<input n:name=login class="form-control" type="name">
 								</div>
 								<label>Heslo</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-									<input class="form-control" type="password" value="">
+									<input n:name=password class="form-control" type="password" value="">
 								</div>
 								<br>
 								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
+									<div class="row">
+										<div class="col-md-6">
 											<label>Jméno</label>
-											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
+											<input n:name=firstName class="form-control" type="name">
+										</div>
+										<div class="col-md-6">
 											<label>Příjmení</label>
-											<input class="form-control" type="name">
-							            </div>
-							        </div>
-							    </div>
+											<input n:name=lastName class="form-control" type="name">
+										</div>
+									</div>
+								</div>
 								<div class="form-group">
-							        <div class="row">
+									<div class="row">
 										<div class="col-md-6">
 											<label>Plat</label>
 											<div class="input-group">
-										      <input type="text" class="form-control" id="exampleInputAmount">
-										      <div class="input-group-addon">Kč</div>
-										    </div>
+											  <input n:name=salary type="text" class="form-control" id="exampleInputAmount">
+											  <div class="input-group-addon">Kč</div>
+											</div>
 										</div>
-							            <div class="col-md-3 col-md-offset-2">
+										<div class="col-md-3 col-md-offset-2">
 											<label>Funkce</label>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option2" checked>
-											    Chovatel
+												<input n:name="role:0" type="radio" checked>
+												Chovatel
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
-											    Správce
+												<input n:name="role:1" type="radio" >
+												Správce
 											  </label>
 											</div>
 										</div>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-					<div class="panel panel-default">
-  						<div class="panel-heading">Adresa + Kontakt</div>
-  						<div class="panel-body">
-							<form>
+						<div class="panel panel-default">
+							<div class="panel-heading">Adresa + Kontakt</div>
+							<div class="panel-body">
 								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
+									<div class="row">
+										<div class="col-md-6">
 											<label>Ulice</label>
-											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
+											<input n:name=street class="form-control" type="name">
+										</div>
+										<div class="col-md-6">
 											<label>Město</label>
-											<input class="form-control" type="name">
-							            </div>
-							        </div>
-							    </div>
+											<input n:name=city class="form-control" type="name">
+										</div>
+									</div>
+								</div>
 								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
+									<div class="row">
+										<div class="col-md-6">
 											<label>PSČ</label>
-											<input class="form-control" type="name">
+											<input n:name=postCode class="form-control" type="name">
 										</div>
 										<div class="col-md-6">
 											<label>Telefon</label>
 											<div class="input-group">
 												<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-												<input type="text" class="form-control" id="exampleInputAmount">
+												<input n:name=phone type="text" class="form-control" id="exampleInputAmount">
 											</div>
 										</div>
 									</div>
@@ -146,18 +144,16 @@
 								<label>E-mail</label>
 								<div class="input-group">
 									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
-									<input class="form-control" type="email">
+									<input n:name=email class="form-control" type="email">
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-					<a href="/admin/add-staff/1">
-						<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
-					</a>
-				</div>
+					<div class="modal-footer">
+						<button type="button" id="cancel-user-add" class="btn btn-default"><i class="fa fa-times"></i> Storno</button>
+						<button type="submit" id="confirm-user-add" class="btn btn-primary"><i class="fa fa-check"></i> Potvrdit</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

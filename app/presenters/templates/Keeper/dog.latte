@@ -35,12 +35,27 @@
 						<div class="col-xs-12 col-md-4">
 							<div class="panel panel-success">
 								 <div class="panel-heading">
-									<div class="panel-title">Cena: {$dog->NazevPlemena }</div>
+									<div class="panel-title">Doporučená cena: {if $dog->Cena}{$dog->Cena}{else}N/A{/if} Kč</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
+				<hr>
+				
+				{if $orders}
+				{foreach $orders as $order}
+				{if $order->Stav === 1}		
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<i class="fa fa-clock-o fa-2x fa-fw"></i> Na tohoto psa je v čekání objednávka. Prosím o vyřízení
+						<div class="btn btn-primary btn-view-order-modal pull-right" data-id="{$order->ID}">Detaily</div>
+					</div>
+				</div>
+				{/if}
+				{/foreach}
+				{/if}
+				
 				<hr>
 
               	<div class="panel panel-default">
@@ -405,11 +420,11 @@
 		</div>
 	</div>
 	
-	<div id="view-trophy-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+	<div id="view-order-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Detaily měření</h3>
+					<h3>Detaily objednávky</h3>
 				</div>
 				<div class="modal-body text-justify">
 					<form>
@@ -417,25 +432,27 @@
 							<div class="row">
 								<div class="col-md-6">
 									<label>Datum</label>
-									<input id="trophy-date" class="form-control" type="text" readonly>
+									<input id="order-date" class="form-control" type="text" readonly>
 								</div>
 								<div class="col-md-6">
-									<label>Název ocenění</label>
-									<input id="trophy-attr-1" class="form-control" type="text" readonly>
+									<label>Uživatel</label>
+									<input id="order-login" class="form-control" type="text" readonly>
 								</div>
 							</div>
 						</div>
 					</form>
-					<label>Popis</label>
-					<input id="trophy-attr-2" class="form-control" type="text" readonly>
+					<label>Částka</label>
+					<input id="order-attr-1" class="form-control" type="text" readonly>
 				</div>
 				<div class="modal-footer">
-					<button id="hide-trophy" class="btn btn-primary"><i class="fa fa-check"></i> Ok</button>
-					<a id="confirm-trophy-delete-button" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat záznam</a>
+					<a id="hide-order" class="btn btn-primary">Storno</a>
+					<a id="confirm-order" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</a>
+					<a id="deny-order" class="btn btn-danger"><i class="fa fa-times"></i> Zamítnout</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<div id="confirm-measure-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
 		<div class="modal-dialog">
@@ -522,7 +539,6 @@
 
 	$(".btn-view-measure-modal").click(function(){
 		var id = $(this).attr('data-id');
-		console.log("ss");
 		$.getJSON("/keeper/get-measure/" + id, function (data) {
 			$("#measure-date").val(data[0]["Datum"]["date"]);
 			$("#measure-login").val(data[0]["Uzivatel_Login"]);
@@ -553,7 +569,6 @@
 
 	$(".btn-view-preventive-modal").click(function(){
 		var id = $(this).attr('data-id');
-		console.log("ss");
 		$.getJSON("/keeper/get-preventive/" + id, function (data) {
 			$("#preventive-date").val(data[0]["Datum"]["date"]);
 			$("#preventive-login").val(data[0]["Uzivatel_Login"]);
@@ -582,6 +597,21 @@
 	});
 	$("#hide-trophy").click(function(){
 		$("#view-trophy-modal").modal("hide");
+	});
+	
+	$(".btn-view-order-modal").click(function(){
+		var id = $(this).attr('data-id');
+		$.getJSON("/keeper/get-order/" + id, function (data) {
+			$("#order-date").val(data["Datum"]["date"]);
+			$("#order-login").val(data["Uzivatel_Login"]);
+			$("#order-attr-1").val(data["Castka"]);
+			$("#confirm-order").attr('href', "/keeper/confirm-order/" + data["ID"]);
+			$("#deny-order").attr('href', "/keeper/deny-order/" + data["ID"]);
+			$("#view-order-modal").modal("show");
+		});
+	});
+	$("#hide-order").click(function(){
+		$("#view-order-modal").modal("hide");
 	});
 
 
@@ -623,6 +653,8 @@
 	$("#cancel-trophy-delete").click(function(){
 		$("#confirm-trophy-delete-modal").modal("hide");
 	});
+	
+	
 	
 	</script>
 {/block}

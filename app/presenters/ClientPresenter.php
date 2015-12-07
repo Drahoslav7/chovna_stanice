@@ -23,6 +23,7 @@ class ClientPresenter extends BasePresenter
 	public function renderDog($id)
 	{
 		$this->template->dog = $this->mDog->getDogByID($id);
+		$this->template->order = $this->mOrder->getOrderByDogIDAndLogin($id, $this->template->user->getId());
 	}
 
 
