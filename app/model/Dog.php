@@ -85,4 +85,9 @@ class Dog extends BaseModel {
 	{
 		return $this->db->query('DELETE FROM pes_oceneni WHERE id = ?', $id);
 	}
+
+	public function addDog($values)
+	{
+		# code...
+	}
 }
