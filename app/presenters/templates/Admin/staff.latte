@@ -22,7 +22,7 @@
 			<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 				<div class="grid-cell">
 					<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg"></img>
-					<button type="button" class="btn btn-default confirm-member-delete-button"><i class="fa fa-times"></i></button>
+					<button type="button" class="btn btn-default confirm-member-delete-button" data-login="{$member->Login}"><i class="fa fa-times"></i></button>
 					<div class="cell-footer">
 						<div class="cell-footer-text">
 							<div class="row">
@@ -37,16 +37,14 @@
 					</div>
 				</div>
 			</div>
-			{if $iterator->isLast()}
-			<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
-				<div class="grid-cell new-cell">
-					<div id="new-user-button" class="btn btn-default new-member-button">
-						<i class="fa fa-plus-square fa-3x"></i>
-					</div>
+		{/foreach}
+		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
+			<div class="grid-cell new-cell">
+				<div id="new-user-button" class="btn btn-default new-member-button">
+					<i class="fa fa-plus-square fa-3x"></i>
 				</div>
 			</div>
-			{/if}
-		{/foreach}
+		</div>
 	</div>
 
 
@@ -173,9 +171,7 @@
 				</div>
 				<div class="modal-footer">
 					<button id="cancel-user-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-					<a href="/admin/delete-staff/{$member->Login}">
-						<button id="confirm-user-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</button>
-					</a>
+					<a href="" id="confirm-user-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</a>
 				</div>
 			</div>
 		</div>
@@ -186,11 +182,13 @@
 		$("#new-user-modal").modal("show");
 	});
 	$(".confirm-member-delete-button").click(function(){
+		var login = $(this).attr('data-login');
 		$("#confirm-user-delete-modal").modal("show");
+		$("#confirm-user-delete").attr('href', "/admin/delete-staff/" + login);
 	});
-	$("#cancel-user-delete").click(function(){
-		$("#confirm-user-delete-modal").modal("hide");
-	});
+	// $("#cancel-user-delete").click(function(){
+	// 	$("#confirm-user-delete-modal").modal("hide");
+	// });
 	$("#cancel-user-add").click(function(){
 		$("#new-user-modal").modal("hide");
 	});

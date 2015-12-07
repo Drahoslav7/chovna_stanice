@@ -65,7 +65,7 @@
 		</ul>
 	</div>
   </div>
-	{foreach $flashes as $flash}
-		<div class="alert alert-{$flash->type}">{$flash->message}</div>
-	{/foreach}
 </nav>
+{foreach $flashes as $flash}
+	<div class="flash alert alert-{$flash->type}">{$flash->message}</div>
+{/foreach}
