@@ -20,14 +20,16 @@ class ClientPresenter extends BasePresenter
 	}
 
 
-	public function renderDog()
+	public function renderDog($id)
 	{
-
+		$id = 7; //TODO Make this dynamic
+		$this->template->dog = $this->mDog->getDogByID($id);
 	}
 
 
 	public function renderOrder($login)
 	{
+		$login = "xlehne01"; //TODO Make this dynamic
 		$this->template->orders = $this->mOrder->getOrdersByLogin($login);
 	}
 

@@ -103,3 +103,14 @@ body {
 .btn-c {
 	color: #000000;
 }
+
+.btn-group-c {
+	height: 45px;
+	padding: 10px 0 10px 0;
+}
+
+#measure-history, #weighting-history, #trophy-history, #preventive-history {
+	max-height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
