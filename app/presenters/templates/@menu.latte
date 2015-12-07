@@ -27,10 +27,10 @@
 			{/if}
 			{if $isClient}
 			<li class="btn-info">
-				<a href="/client/data"><span class="btn-c"><i class="fa fa-user"></i> Fakturační údaje</span></a>
+				<a href="/client/data/{$user->getId()}"><span class="btn-c"><i class="fa fa-user"></i> Fakturační údaje</span></a>
 			</li>
 			<li class="btn-info">
-				<a href="/client/order"><span class="btn-c"><i class="fa fa-credit-card"></i> Objednávky</span></a>
+				<a href="/client/order/{$user->getID()}"><span class="btn-c"><i class="fa fa-credit-card"></i> Objednávky</span></a>
 			</li>
 			{/if}
 			{if !$isGuest}
@@ -39,6 +39,9 @@
 			</li>
 			{/if}
 			{if $isGuest}
+			<li id="register-button">
+				<a href="#"><i class="fa fa-user-plus"></i> Registrace</a>
+			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-sign-in"></i> Přihlášení</a>
 				<ul class="dropdown-menu pull-left">
@@ -50,7 +53,7 @@
 							<div class="form-group">
 								<input n:name=password class="form-control" placeholder="Heslo" type="password">
 							</div>
-							<button n:name=send type="submit" class="btn btn-default">
+							<button n:name=send type="submit" class="btn btn-info btn-block">
 								<span>Přihlášení</span>
 							</button>
 
@@ -69,3 +72,117 @@
 {foreach $flashes as $flash}
 	<div class="flash alert alert-{$flash->type}">{$flash->message}</div>
 {/foreach}
+
+{if $isGuest}
+<div id="register-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-user-plus" aria-hidden="true"></i> Registrační formulář</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<div class="panel panel-default">
+  						<div class="panel-heading">Základní údaje</div>
+  						<div class="panel-body">
+							<form>
+								<label>Uživatelský Login</label>
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
+									<input class="form-control" type="name">
+								</div>
+								<label>Heslo</label>
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+									<input class="form-control" type="password" value="">
+								</div>
+								<br>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Jméno</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>Příjmení</label>
+											<input class="form-control" type="name">
+							            </div>
+							        </div>
+							    </div>
+							</form>
+						</div>
+					</div>
+					<div class="panel panel-default">
+  						<div class="panel-heading">Adresa + Kontakt</div>
+  						<div class="panel-body">
+							<form>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Ulice</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>Město</label>
+											<input class="form-control" type="name">
+							            </div>
+							        </div>
+							    </div>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>PSČ</label>
+											<input class="form-control" type="name">
+										</div>
+										<div class="col-md-6">
+											<label>Telefon</label>
+											<div class="input-group">
+												<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+												<input type="text" class="form-control" id="exampleInputAmount">
+											</div>
+										</div>
+									</div>
+								</div>
+								<label>E-mail</label>
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
+									<input class="form-control" type="email">
+								</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+  						<div class="panel-heading">Fakturační údaje</div>
+  						<div class="panel-body">
+							<form>
+								<div class="form-group">
+							        <div class="row">
+							            <div class="col-md-6">
+											<label>Ulice</label>
+											<input class="form-control" type="name">
+							            </div>
+							            <div class="col-md-6">
+											<label>PSČ</label>
+											<input class="form-control" type="name">
+							            </div>
+							        </div>
+							    </div>
+								<label>Město</label>
+								<input class="form-control" type="name">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="/admin/add-staff/1">
+						<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+$("#register-button").click(function(){
+		$("#register-modal").modal("show");
+	});
+</script>
+{/if}
