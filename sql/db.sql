@@ -48,7 +48,8 @@ Druh_srsti VARCHAR(20) NULL ,
 Chovna_stanice_ID INT(10) DEFAULT NULL  NULL ,
 Plemeno_ID INT(10) NULL ,
 Matka_ID INT(10) NULL ,
-Otec_ID INT(10) NULL
+Otec_ID INT(10) NULL ,
+Cena INT(10) DEFAULT NULL
 );
 
 -- ----------------------------
