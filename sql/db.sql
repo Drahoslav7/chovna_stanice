@@ -37,6 +37,7 @@ Uzivatel_Login VARCHAR(8) NOT NULL
 -- ----------------------------
 DROP TABLE IF EXISTS Pes;
 CREATE TABLE Pes (
+_deleted BOOLEAN DEFAULT 0, 
 ID INT(10) NOT NULL ,
 Jmeno VARCHAR(20) DEFAULT ''  NULL ,
 Pohlavi CHAR(1) DEFAULT NULL  NULL ,
@@ -117,6 +118,7 @@ Vaha INT(3) NULL
 -- ----------------------------
 DROP TABLE IF EXISTS `uzivatel`;
 CREATE TABLE `uzivatel` (
+  _deleted BOOLEAN DEFAULT 0, 
   `Login` varchar(8) NOT NULL,
   `Heslo` varchar(128) NOT NULL,
   `Jmeno` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
@@ -352,10 +354,10 @@ ALTER TABLE Uzivatel_zamestnanec ADD FOREIGN KEY (Login) REFERENCES Uzivatel (Lo
 -- ----------------------------
 -- Records of Uzivatel
 -- ----------------------------
-INSERT INTO Uzivatel VALUES ('zkunca07', SHA2('1', 512), 'Jiri', 'Kuncak', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
-INSERT INTO Uzivatel VALUES ('xlehne01', SHA2('2', 512), 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
-INSERT INTO Uzivatel VALUES ('zbalvi00', SHA2('3', 512), 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'spravce');
-INSERT INTO Uzivatel VALUES ('zbedna55', SHA2('4', 512), 'Drahoslav', 'Bednar', 'Brnenska', 'Brno', '61215', '123777895', 'xbedna55@chovatelna.cz', 'spravce');
+INSERT INTO Uzivatel VALUES (0, 'zkunca07', SHA2('1', 512), 'Jiri', 'Kuncak', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
+INSERT INTO Uzivatel VALUES (0, 'xlehne01', SHA2('2', 512), 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
+INSERT INTO Uzivatel VALUES (0, 'zbalvi00', SHA2('3', 512), 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'spravce');
+INSERT INTO Uzivatel VALUES (0, 'zbedna55', SHA2('4', 512), 'Drahoslav', 'Bednar', 'Brnenska', 'Brno', '61215', '123777895', 'xbedna55@chovatelna.cz', 'spravce');
 
 -- ----------------------------
 -- Records of Uzivatel_klient
@@ -385,15 +387,15 @@ INSERT INTO `pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Ze
 -- ----------------------------
 -- Records of Pes
 -- ----------------------------
-INSERT INTO `pes` (`ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`) VALUES
-(1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL),
-(3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1),
-(4, 'Colin', 'M', '2015-01-14', 123333789123456, 'Seda', 'Bez', 1, 2, NULL, NULL),
-(5, 'Colina', 'F', '2015-04-12', 165655646546546, 'Cerna', 'Bez', NULL, 2, 2, 4),
-(6, 'Rexss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(7, 'Rexssss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(8, 'Ferda', 'M', '2012-03-12', 123929652976738, 'Hneda', 'Hladka', NULL, 3, NULL, NULL);
+INSERT INTO `pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`) VALUES
+(0, 1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(0, 2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL),
+(0, 3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1),
+(0, 4, 'Colin', 'M', '2015-01-14', 123333789123456, 'Seda', 'Bez', 1, 2, NULL, NULL),
+(0, 5, 'Colina', 'F', '2015-04-12', 165655646546546, 'Cerna', 'Bez', NULL, 2, 2, 4),
+(0, 6, 'Rexss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(0, 7, 'Rexssss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
+(0, 8, 'Ferda', 'M', '2012-03-12', 123929652976738, 'Hneda', 'Hladka', NULL, 3, NULL, NULL);
 
 -- ----------------------------
 -- Records of Pes_mereni
