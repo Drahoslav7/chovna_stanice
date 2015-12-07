@@ -34,8 +34,9 @@ class ClientPresenter extends BasePresenter
 	}
 
 
-	public function renderData()
+	public function renderData($login)
 	{
-
+		$login = "xlehne01";
+		$this->template->client = $this->mClient->getClientByLogin($login);
 	}
 }
