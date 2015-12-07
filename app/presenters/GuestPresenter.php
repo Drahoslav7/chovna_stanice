@@ -13,8 +13,8 @@ class GuestPresenter extends BasePresenter
 	}
 
 
-	public function renderDog()
+	public function renderDog($id)
 	{
-
+		$this->template->dog = $this->mDog->getDogByID($id);
 	}
 }

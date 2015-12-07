@@ -11,7 +11,7 @@
 	{foreach $orders as $order}
 		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 			<div class="grid-cell">
-				<a href="/keeper/dog/{$order->ID}">
+				<a href="/client/dog/{$order->Pes_ID}">
 					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$order->Pes_ID}.jpg">
 				</a>
 				{if $order->Stav === 2}

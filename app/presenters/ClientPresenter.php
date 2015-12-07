@@ -22,21 +22,18 @@ class ClientPresenter extends BasePresenter
 
 	public function renderDog($id)
 	{
-		$id = 7; //TODO Make this dynamic
 		$this->template->dog = $this->mDog->getDogByID($id);
 	}
 
 
-	public function renderOrder($login)
+	public function renderOrder($id)
 	{
-		$login = "xlehne01"; //TODO Make this dynamic
-		$this->template->orders = $this->mOrder->getOrdersByLogin($login);
+		$this->template->orders = $this->mOrder->getOrdersByLogin($id);
 	}
 
 
 	public function renderData($login)
 	{
-		$login = "xlehne01";
 		$this->template->client = $this->mClient->getClientByLogin($login);
 	}
 }
