@@ -46,7 +46,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-sign-in"></i> Přihlášení</a>
 				<ul class="dropdown-menu pull-left">
 					<li>
-						<form action="/" n:name=signInForm id="login-form" role="form">
+						<form n:name=signInForm id="login-form" role="form">
 							<div class="form-group">
 								<input n:name=user class="form-control" placeholder="Uživatelské jméno" type="username">
 							</div>
@@ -77,7 +77,7 @@
 <div id="register-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="/" n:name=registerForm>
+				<form n:name=registerForm>
 					<div class="modal-header">
 						<h3><i class="fa fa-user-plus" aria-hidden="true"></i> Registrační formulář</h3>
 					</div>
@@ -168,10 +168,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-						<a href="/admin/add-staff/1">
-							<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
-						</a>
+						<button type="button" id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+						<button type="submit" id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
 					</div>
 				</form>
 			</div>
@@ -180,7 +178,11 @@
 
 <script>
 $("#register-button").click(function(){
-		$("#register-modal").modal("show");
-	});
+	$("#register-modal").modal("show");
+});
+$("#cancel-user-add").click(function(){
+	$("#register-modal").modal("hide");
+});
+
 </script>
 {/if}
