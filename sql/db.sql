@@ -157,7 +157,6 @@ F_PSC NVARCHAR(5) NULL
 DROP TABLE IF EXISTS Uzivatel_zamestnanec;
 CREATE TABLE Uzivatel_zamestnanec (
 Login VARCHAR(10) NOT NULL ,
-Zkr_fce NVARCHAR(4) NULL ,
 Plat INT(10) NULL
 );
 
@@ -377,9 +376,9 @@ INSERT INTO Uzivatel_klient VALUES ('jirka', 'Liberec', 'Ulice', '11132');
 -- ----------------------------
 -- Records of Uzivatel_zamestnanec
 -- ----------------------------
-INSERT INTO Uzivatel_zamestnanec VALUES ('admin', 'RED', '50000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel1', 'CHV', '20000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel2', 'CHV', '25000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('admin', '50000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel1', '20000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel2', '25000');
 
 -- ----------------------------
 -- Records of Chovna_stanice

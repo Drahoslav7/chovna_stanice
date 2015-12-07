@@ -16,7 +16,7 @@ class Staff extends BaseModel {
 
 	public function getStaff()
 	{
-		return $this->db->query('SELECT * FROM uzivatel JOIN uzivatel_zamestnanec USING (Login) WHERE !_deleted ORDER BY Zkr_fce,Login');
+		return $this->db->query('SELECT * FROM uzivatel JOIN uzivatel_zamestnanec USING (Login) WHERE !_deleted ORDER BY Role,Login');
 	}
 
 	public function getStaffByID($id)
