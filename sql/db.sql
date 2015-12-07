@@ -361,10 +361,11 @@ ALTER TABLE Uzivatel_zamestnanec ADD FOREIGN KEY (Login) REFERENCES Uzivatel (Lo
 -- ----------------------------
 -- Records of Uzivatel
 -- ----------------------------
-INSERT INTO Uzivatel VALUES (0, 'zkunca07', SHA2('1', 512), 'Jiri', 'Kuncak', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
-INSERT INTO Uzivatel VALUES (0, 'xlehne01', SHA2('2', 512), 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
-INSERT INTO Uzivatel VALUES (0, 'zbalvi00', SHA2('3', 512), 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'spravce');
-INSERT INTO Uzivatel VALUES (0, 'zbedna55', SHA2('4', 512), 'Drahoslav', 'Bednar', 'Brnenska', 'Brno', '61215', '123777895', 'xbedna55@chovatelna.cz', 'spravce');
+INSERT INTO Uzivatel VALUES (0, 'admin', SHA2('admin', 512), 'Jan', 'Novák', 'Brnenska', 'Brno', '61215', '123777895', 'admin@chovatelna.cz', 'spravce');
+INSERT INTO Uzivatel VALUES (0, 'chovatel1', SHA2('chovatel1', 512), 'Jana', 'Nováková', 'Brnenska', 'Brno', '61215', '123777895', 'novakova@chovatelna.cz', 'chovatel');
+INSERT INTO Uzivatel VALUES (0, 'chovatel2', SHA2('cohvatel2', 512), 'David', 'Balvin', 'Haskova', 'Zdar nad Sazavou', '59101', '123456789', 'xbalvi00@chovatelna.cz', 'chovatel');
+INSERT INTO Uzivatel VALUES (0, 'pavla', SHA2('1234', 512), 'Pavla', 'Lehnertova', 'Dedinska', 'Dedina', '32154', '134784124', 'lehnehne@provider.co.uk', 'klient');
+INSERT INTO Uzivatel VALUES (0, 'jirka', SHA2('hustodémonskykrutopřísné', 512), 'Jiří', 'Kunčék', 'Brnenska', 'Brno', '61215', '135125744', 'Kunik@mejl.cz', 'chovatel');
 
 -- ----------------------------
 -- Records of Uzivatel_klient
