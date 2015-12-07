@@ -44,12 +44,12 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->isKeeper = (in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()));
 		$this->template->isGuest = !(in_array("spravce", $user->getRoles()) || in_array("chovatel", $user->getRoles()) || in_array("klient", $user->getRoles()));
 		$this->template->isClient = in_array("klient", $user->getRoles());
-		$loginForm = $this->createComponentSignInForm();
-		$registerForm = $this->createComponentRegisterForm();
 	}
 	
 	public function actionDefault()
 	{
+		$loginForm = $this->createComponentSignInForm();
+		$registerForm = $this->createComponentRegisterForm();
 	}
 
 	public function actionLogout()

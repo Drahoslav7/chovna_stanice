@@ -12,7 +12,7 @@ class Users extends BaseModel {
 	 */
 	public function register($values)
 	{
-		// $this->db->beginTransaction();
+		$this->db->beginTransaction();
 		$ok = $this->newUser($values, 'klient');
 		if($ok){
 			$this->db->table("uzivatel_klient")->insert(array(
@@ -21,10 +21,10 @@ class Users extends BaseModel {
 				'F_Mesto' => $values->f_city,
 				'F_PSC' => $values->f_postCode,
 			));
-			// $this->db->commit();
+			$this->db->commit();
 			return true;
 		} else {
-			// $this->db->rollback();
+			$this->db->rollback();
 			return false;
 		}
 
@@ -35,29 +35,27 @@ class Users extends BaseModel {
 	 */
 	public function add($values)
 	{
-		$role;
-		switch ($values->role){
-			case 'admin':
-				$role = 'spravce';
-				break;
-			case 'keeper':
-				$role = 'chovatel';
-				break;
-			default:
-				return false;
+		$role = 'guest';
+		if ($values->role === 'admin'){
+			$role = 'spravce';
+		} elseif ($values->role === 'keeper') {
+			$role = 'chovatel';
+		} else {
+			throw new Nette\Database\DriverException("Bad role");
+			return false;
 		}
-		// $this->db->beginTransaction();
+		$this->db->beginTransaction();
 
 		$ok = $this->newUser($values, $role);
 		if($ok){
-			$this->db->table("uzivatel_klient")->insert(array(
+			$this->db->table("uzivatel_zamestnanec")->insert(array(
 				'Login' => $values->login,
 				'Plat' => $values->salary
 			));
-			// $this->db->commit();
+			$this->db->commit();
 			return true;
 		} else {
-			// $this->db->rollback();
+			$this->db->rollback();
 			return false;
 		}
 	}

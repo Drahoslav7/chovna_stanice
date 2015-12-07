@@ -7,15 +7,12 @@ use Nette\Application\UI\Form;
 class AdminPresenter extends BasePresenter
 {
 
-	private $addMemberForm;
-
 	public function startup()
 	{
 		parent::startup();
 		if ($this->template->isAdmin !== true) {
 			$this->redirect("Homepage:default");
 		}
-		$this->addMemberForm = $this->createComponentAddMemberForm();
 	}
 
 
@@ -24,9 +21,15 @@ class AdminPresenter extends BasePresenter
 		$this->redirect("Admin:Staff");
 	}
 
+	public function actionStaff()
+	{
+		$addMemberForm = $this->createComponentAddMemberForm();
+	}
+
 	public function actionAddStaff()
 	{
-		$this->addMemberFormSubmitted($this->addMemberForm);
+		$addMemberForm = $this->createComponentAddMemberForm();
+		$this->addMemberFormSubmitted($addMemberForm);
 	}
 	
 	public function actionDeleteStaff($id)
@@ -79,8 +82,8 @@ class AdminPresenter extends BasePresenter
 		$form->addText('phone');
 
 		$form->addRadioList('role', array(
-			0 => 'admin',
-			1 => 'keeper'
+			'admin' => 'správce',
+			'keeper' => 'chovatel'
 		))->setRequired('Výběr funkce je povinný');
 
 		$form->addText('salary')
@@ -88,22 +91,26 @@ class AdminPresenter extends BasePresenter
 
 		$form->addSubmit('ok');
 
-		$form->onSuccess[] = $this->addMemberFormSubmitted;
+		$form->onSuccess[] = array($this, 'addMemberFormSubmitted');
 		return $form;
 	}
 
 	public function addMemberFormSubmitted($form)
 	{
 		$values = $form->getValues();
+		foreach ($_POST as $key => $value)
+		{
+		    $values->$key = $value;
+		}
+		// var_dump($values);
 		try {
 			$this->mUsers->add($values);
-		} catch (Nette\Security\AuthenticationException $e) {
+		} catch (Nette\Database\DriverException $e) {
 			$form->addError($e->getMessage());
-			$this->flashMessage('Registrace se nepovedla, zkontrolujte prosím zadané údaje','danger');
-			return;
+			$this->flashMessage('Registrace se nepovedla, zkontrolujte prosím zadané údaje ' . $e->getMessage(),'danger');
+			$this->redirect('Admin:staff');
 		}
 		$this->flashMessage('Vytvoření zaměstnance proběhlo uspěšně', 'success');
-
 		$this->redirect('Admin:staff');
 	}
 }
