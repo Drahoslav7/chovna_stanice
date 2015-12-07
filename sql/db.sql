@@ -396,15 +396,15 @@ INSERT INTO `pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Ze
 -- ----------------------------
 -- Records of Pes
 -- ----------------------------
-INSERT INTO `pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`) VALUES
-(0, 1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(0, 2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL),
-(0, 3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1),
-(0, 4, 'Colin', 'M', '2015-01-14', 123333789123456, 'Seda', 'Bez', 1, 2, NULL, NULL),
-(0, 5, 'Colina', 'F', '2015-04-12', 165655646546546, 'Cerna', 'Bez', NULL, 2, 2, 4),
-(0, 6, 'Rexss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(0, 7, 'Rexssss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL),
-(0, 8, 'Ferda', 'M', '2012-03-12', 123929652976738, 'Hneda', 'Hladka', NULL, 3, NULL, NULL);
+INSERT INTO `pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`, `Cena`) VALUES
+(0, 1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL, 2000),
+(0, 2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL, 2000),
+(0, 3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1, 5000),
+(0, 4, 'Colin', 'M', '2015-01-14', 123333789123456, 'Seda', 'Bez', 1, 2, NULL, NULL, 3000),
+(0, 5, 'Colina', 'F', '2015-04-12', 165655646546546, 'Cerna', 'Bez', NULL, 2, 2, 4, 5000),
+(0, 6, 'Rexss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL, 6000),
+(0, 7, 'Rexssss', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL, 8000),
+(0, 8, 'Ferda', 'M', '2012-03-12', 123929652976738, 'Hneda', 'Hladka', NULL, 3, NULL, NULL, 2000);
 
 -- ----------------------------
 -- Records of Pes_mereni
