@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+    
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    	code {
+    		white-space: pre-wrap; 
+    	}
+    	i {
+    		font-family: monospace;
+    	}
+    </style>
+<style type="text/css"></style></head>
+<body cz-shortcut-listen="true">
+
+
+<h1>Chovná stanice</h1> <!-- Nahradte názvem svého zadání -->
+<dl>
+	<dt>Autoři</dt>
+	<dd>David Balvín  <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xbalvi00@stud.fit.vutbr.cz">xbalvi00@stud.fit.vutbr.cz</a> -
+		Převážně klientská část: <small>(view a presenter v MVP architektuře)</small>
+		<ul>
+			<li>grafické uživatelské rozhraní</li>
+		</ul>
+	</dd>
+	<dd>Drahoslav Bednář <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xbedna55@stud.fit.vutbr.cz">xbedna55@stud.fit.vutbr.cz</a> - 
+		Převážně serverová část: <small>(model a presenter v MVP architektuře)</small>
+		<ul>
+			<li>zpracování formulářů</li>
+		</ul>
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://chovna-stanice.yo2.cz">http://chovna-stanice.yo2.cz</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin</td><td>Správce</td></tr>
+<tr><td>chovatel1</td><td>chovatel1</td><td>Chovatel</td></tr>
+<tr><td>chovatel2</td><td>chovatel2</td><td>Chovatel</td></tr>
+<tr><td>pavla</td><td>1234</td><td>Klient</td></tr>
+<tr><td>jirka</td><td>hustodémonskykrutopřísné</td><td>Klient</td></tr>
+</tbody></table>
+
+<h2>Implementace</h2>
+<p>Pro implemetaci byl použit php framework <i>Nette</i>, a pro klientskou část další podpůrné knihovny/frameworky: <i>bootstrap</i>, <i>jQuery</i>, <i>fonta-awesome</i>.</p>
+<p>Naše vlastní zdrojové kódy se tedy nazházejí jen v podadresářích <i>www/</i> a <i>app/</i></p>
+<p>Případi užití pro roli Administratora jsou implementaované v souboru <i>/app/presenters/AdminPresenter.php</i> a v odpovídajících šablonách v adresáři <i>/app/presenters/templates/Admin/</i></p>
+<p>Případi užití pro roli Chovatele jsou implementaované v souboru <i>/app/presenters/KeeperPresenter.php</i> a v odpovídajících šablonách v adresáři <i>/app/presenters/templates/Keeper/</i></p>
+<p>Případi užití pro roli Klienta jsou implementaované v souboru <i>/app/presenters/ClientPresenter.php</i> a v odpovídajících šablonách v adresáři <i>/app/presenters/templates/Client/</i></p>
+
+<!-- <p>Stručná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé případy použití uvedené v use-case diagramu z IDS. V případě, že bylo nutno při implementaci učinit změny v návrhu, musí být v dokumentaci zdůvodněny.</p> -->
+
+
+
+<h2>Instalace</h2>
+<ul>
+	<li>rozbalit zip archiv standartním způsobem a přesunounout obsah adresáře chovna_stanice na patřičné umístnění dle pužitého HTTP serveru</li>
+	<li>nastavit root directory HTTP serveru na <i>chovna_stanice/www/</i></li>
+	<li>vytvořit soubor <i>chovna_stanice/app/config/config.local.neon</i> s obsahem:
+<code>
+database:
+	dsn: 'mysql:host=localhost;dbname=chovna_stanice'
+	user: chovna_stanice
+	password: chovna_stanice
+</code>
+	</li>
+	<li>vytvořit MySQL databázi <i>chovna_stanice</i> a k ní uživatele <i>chovna_stanice</i> s heslem <i>chovna_stanice</i> </li>
+	<li>spustit/importovat soubor <i>chovna_stanice/sql/db.sql</i></li>
+</ul>
+<h3>Požadavky</h3>
+<ul>
+<li>PHP verze 5.3.1 nebo vyšší</li>
+<li>HTTP server s podporou <i>.htaccess</i> a <i>mod_rewrite</i> (Apache)</li>
+<li>Další vyplývající z použitého frameworku, vizte: <a href="https://doc.nette.org/cs/2.3/requirements">https://doc.nette.org/cs/2.3/requirements</a></li>
+</ul>
+
+
+<h2>Známé problémy</h2>
+<!-- <p>Zde popište, které body zadání (IDS a IIS) nejsou implementovány a z jakého důvodu. Např. &#8222;Z časových důvodů nebyla implementována správa uživatelů.&#8221; Pomůžete tím zrychlit opravování, když neimplementované funkce nebudeme muset dlouze hledat.</p> -->
+
+
+
+</body></html>
