@@ -184,57 +184,57 @@ class KeeperPresenter extends BasePresenter
 	}
 
 
-		protected function createComponentAddDogForm()
+	protected function createComponentAddDogForm()
+	{
+		$form = new Form;
+		$form->setAction("/keeper/add-dog/");
+		$form->setMethod('POST');
+
+		$form->addText('name')
+			->setRequired('Jmeno je povinne');
+
+		$form->
+
+		$form->addRadioList('sex', array(
+			'male' => 'samec',
+			'female' => 'samice'
+		))->setRequired('Výběr pohlavi je povinný');
+
+		$form->addText('chipCode');
+		$form->addText('race');
+		$form->addText('hairColor');
+		$form->addText('hairType');
+
+		$form->addText('father');
+		$form->addText('mother');
+
+		$form->addText('hairType');
+
+		$form->addText('breedingStation');
+
+
+		$form->addSubmit('ok');
+
+		$form->onSuccess[] = array($this, 'addDogFormSubmitted');
+		return $form;
+	}
+
+	public function addDogFormSubmitted($form)
+	{
+		$values = $form->getValues();
+		foreach ($_POST as $key => $value)
 		{
-			$form = new Form;
-			$form->setAction("/keeper/add-dog/");
-			$form->setMethod('POST');
-
-			$form->addText('name')
-				->setRequired('Jmeno je povinne');
-
-			$form->
-
-			$form->addRadioList('sex', array(
-				'male' => 'samec',
-				'female' => 'samice'
-			))->setRequired('Výběr pohlavi je povinný');
-
-			$form->addText('chipCode');
-			$form->addText('race');
-			$form->addText('hairColor');
-			$form->addText('hairType');
-
-			$form->addText('father');
-			$form->addText('mother');
-
-			$form->addText('hairType');
-
-			$form->addText('breedingStation');
-
-
-			$form->addSubmit('ok');
-
-			$form->onSuccess[] = array($this, 'addDogFormSubmitted');
-			return $form;
+		    $values->$key = $value;
 		}
-
-		public function addMogFormSubmitted($form)
-		{
-			$values = $form->getValues();
-			foreach ($_POST as $key => $value)
-			{
-			    $values->$key = $value;
-			}
-			// var_dump($values);
-			try {
-				$this->mDog->add($values);
-			} catch (Nette\Database\DriverException $e) {
-				$form->addError($e->getMessage());
-				$this->flashMessage('Přidání psa se nepovedlo, zkontrolujte prosím zadané údaje ' . $e->getMessage(),'danger');
-				$this->redirect('Keeper:doglist');
-			}
-			$this->flashMessage('Přidání psa proběhlo uspěšně', 'success');
+		// var_dump($values);
+		try {
+			$this->mDog->add($values);
+		} catch (Nette\Database\DriverException $e) {
+			$form->addError($e->getMessage());
+			$this->flashMessage('Přidání psa se nepovedlo, zkontrolujte prosím zadané údaje ' . $e->getMessage(),'danger');
 			$this->redirect('Keeper:doglist');
 		}
+		$this->flashMessage('Přidání psa proběhlo uspěšně', 'success');
+		$this->redirect('Keeper:doglist');
+	}
 }

@@ -32,6 +32,9 @@ Pes_ID INT(10) NOT NULL ,
 Uzivatel_Login VARCHAR(10) NOT NULL
 );
 
+ALTER TABLE `objednavka`
+CHANGE `ID` `ID` int(10) NOT NULL AUTO_INCREMENT FIRST;
+
 -- ----------------------------
 -- Table structure for Pes
 -- ----------------------------

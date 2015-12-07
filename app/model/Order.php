@@ -8,15 +8,15 @@ namespace App\Model;
  */
 class Order extends BaseModel {
 
-	public function addOrder($login, $dogID)
+	public function add($login, $dogID, $price)
 	{
-		$dog = $this->db->table('pes')->where('ID', $dogID)->fetch();
+		// $dog = $this->db->table('pes')->where('ID', $dogID)->fetch();
 
 		$this->db->table('objednavka')->insert(array(
 			'Pes_ID' => $dogID,
 			'Uzivatel_Login' => $login,
-			'Datum' => date(),
-			'Castka' => $dog->Cena,
+			'Datum' => date("Y-m-d H:i:s"),
+			'Castka' => $price,
 			'Stav' => 1,
 		));
 	}
