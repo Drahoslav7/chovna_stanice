@@ -93,13 +93,20 @@ Popis NVARCHAR(255) NULL
 -- ----------------------------
 -- Table structure for Pes_vakcinace
 -- ----------------------------
-DROP TABLE IF EXISTS Pes_vakcinace;
-CREATE TABLE Pes_vakcinace (
-Pes_ID INT(10) NULL ,
-Vakcina_ID INT(10) NULL ,
-Uzivatel_Login VARCHAR(8) NULL ,
-Datum DATE NULL
+DROP TABLE IF EXISTS `pes_vakcinace`;
+CREATE TABLE `pes_vakcinace` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Pes_ID` int(10) DEFAULT NULL,
+  `Vakcina_ID` int(10) DEFAULT NULL,
+  `Uzivatel_Login` varchar(8) DEFAULT NULL,
+  `Datum` date DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `Pes_ID` (`Pes_ID`),
+  KEY `Uzivatel_Login` (`Uzivatel_Login`),
+  KEY `Vakcina_ID` (`Vakcina_ID`),
 );
+
+-- 2015-12-07 17:06:08
 
 -- ----------------------------
 -- Table structure for Pes_vazeni

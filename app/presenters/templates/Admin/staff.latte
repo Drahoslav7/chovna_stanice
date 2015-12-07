@@ -21,7 +21,7 @@
 		{foreach $staff as $member}
 			<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
 				<div class="grid-cell">
-					<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg"></img>
+					<img class="img-responsive img-resp-c" src="{$basePath}/img/staff/{$member->Login}.jpg">
 					<button type="button" class="btn btn-default confirm-member-delete-button" data-login="{$member->Login}"><i class="fa fa-times"></i></button>
 					<div class="cell-footer">
 						<div class="cell-footer-text">
@@ -38,10 +38,11 @@
 				</div>
 			</div>
 		{/foreach}
-		<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
-			<div class="grid-cell new-cell">
-				<div id="new-user-button" class="btn btn-default new-member-button">
-					<i class="fa fa-plus-square fa-3x"></i>
+			<div class="col-md-2 col-sm-4 col-xs-6 grid-cell-pad">
+				<div class="grid-cell new-cell">
+					<div id="new-user-button" class="btn btn-default new-member-button">
+						<i class="fa fa-plus-square fa-3x"></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -147,6 +148,7 @@
 									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
 									<input class="form-control" type="email">
 								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -186,9 +188,9 @@
 		$("#confirm-user-delete-modal").modal("show");
 		$("#confirm-user-delete").attr('href', "/admin/delete-staff/" + login);
 	});
-	// $("#cancel-user-delete").click(function(){
-	// 	$("#confirm-user-delete-modal").modal("hide");
-	// });
+	$("#cancel-user-delete").click(function(){
+		$("#confirm-user-delete-modal").modal("hide");
+	});
 	$("#cancel-user-add").click(function(){
 		$("#new-user-modal").modal("hide");
 	});

@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="well well-c">
-							<img class="img-responsive img-resp-c2" src="{$basePath}/img/dogs/{$dog->ID}.jpg"></img>
+							<img class="img-responsive img-resp-c2" src="{$basePath}/img/dogs/{$dog->ID}.jpg">
 						</div>
 					</div>
 					<div class="col-md-12">
@@ -22,7 +22,7 @@
       			</div>
 			</div>
       		<div class="col-md-9">
-				
+
 				<hr class="col-md-12">
 					<div class="row">
 						<div class="col-xs-12 col-md-8">
@@ -40,218 +40,85 @@
 							</div>
 						</div>
 					</div>
-				
+
 				<hr>
-				
+
               	<div class="panel panel-default">
 					<div class="panel-heading">
 						Měření
-						<div class="btn btn-info btn-xs pull-right">
+						<div id="btn-add-measure" class="btn btn-info btn-xs pull-right">
 							<i class="fa fa-plus fa-fw"></i>
 						</div>
 					</div>
 					<div id="measure-history" class="panel-body">
 						<div class="row">
+							{foreach $measureHistory as $item}
 							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-15
+								<div data-id="{$item->ID}" class="btn btn-info btn-block btn-xs btn-view-measure-modal">
+									{$item->Datum|date:'%d. %m. %Y'}
 								</div>
 							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
+							{/foreach}
 						</div>
 					</div>
 				</div>
-				
+
               	<div class="panel panel-default">
 					<div class="panel-heading">
 						Vážení
-						<div class="btn btn-info btn-xs pull-right">
+						<div id="btn-add-weighting" class="btn btn-info btn-xs pull-right">
 							<i class="fa fa-plus fa-fw"></i>
 						</div>
 					</div>
 					<div id="weighting-history" class="panel-body">
 						<div class="row">
+							{foreach $weightHistory as $item}
 							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-15
+								<div data-id="{$item->ID}" class="btn btn-info btn-block btn-xs btn-view-weighting-modal">
+									{$item->Datum|date:'%d. %m. %Y'}
 								</div>
 							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							
+							{/foreach}
 						</div>
 					</div>
 				</div>
-				
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Ocenění
-						<div class="btn btn-info btn-xs pull-right">
-							<i class="fa fa-plus fa-fw"></i>
-						</div>
-					</div>
-					<div id="trophy-history" class="panel-body">
-						<div class="row">
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-15
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
+
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Vakcinace
-						<div class="btn btn-info btn-xs pull-right">
+						<div id="btn-add-preventive" class="btn btn-info btn-xs pull-right">
 							<i class="fa fa-plus fa-fw"></i>
 						</div>
 					</div>
 					<div id="preventive-history" class="panel-body">
 						<div class="row">
+							{foreach $preventiveHistory as $item}
 							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-15
+								<div data-id="{$item->ID}" class="btn btn-info btn-block btn-xs btn-view-preventive-modal">
+									{$item->Datum|date:'%d. %m. %Y'}
 								</div>
 							</div>
+							{/foreach}
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Ocenění
+						<div id="btn-add-trophy" class="btn btn-info btn-xs pull-right">
+							<i class="fa fa-plus fa-fw"></i>
+						</div>
+					</div>
+					<div id="trophy-history" class="panel-body">
+						<div class="row">
+							{foreach $trophyHistory as $item}
 							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
+								<div data-id="{$item->ID}" class="btn btn-info btn-block btn-xs btn-view-trophy-modal">
+									{$item->Datum|date:'%d. %m. %Y'}
 								</div>
 							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="btn btn-info btn-block btn-xs">
-									2015-06-16
-								</div>
-							</div>
+							{/foreach}
 						</div>
 					</div>
 				</div>
@@ -260,6 +127,502 @@
   	</div>
 </div>
 
+	<div id="add-measure-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat záznam z měření</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="new-measure-date" class="form-control" type="name">
+								</div>
+								<div class="col-md-6">
+									<label>Měření provedl</label>
+									<input id="new-measure-login" value="{$user->getId()}" class="form-control" type="name" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Výška</label>
+								<input id="new-measure-attr-1" class="form-control" type="text">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Délka</label>
+								<input id="new-measure-attr-2" class="form-control" type="text">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Obvod</label>
+							<input id="new-measure-attr-3" class="form-control" type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-add-measure" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="#" id="add-measure" class="btn btn-success"><i class="fa fa-check"></i> Přidat</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-{/block}
+	<div id="add-weighting-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat záznam z vážení</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="new-weighting-date" class="form-control" type="name">
+								</div>
+								<div class="col-md-6">
+									<label>Měření provedl</label>
+									<input id="new-weighting-login" value="{$user->getId()}" class="form-control" type="name" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="input-group">
+						<label>Váha</label>
+						<input id="new-weighting-attr-1" class="form-control" type="text">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-add-weighting" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="#" id="add-weighting" class="btn btn-success"><i class="fa fa-check"></i> Přidat</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="add-preventive-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat záznam z vakcinace</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="new-preventive-date" class="form-control" type="text">
+								</div>
+								<div class="col-md-6">
+									<label>Vakcinaci provedl</label>
+									<input id="new-weighting-login" value="{$user->getId()}" class="form-control" type="name" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<label>Název Vakcíny</label>
+					<input id="new-preventive-attr-1" class="form-control" type="text">
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-add-preventive" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="#" id="add-preventive" class="btn btn-success"><i class="fa fa-check"></i> Přidat</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="add-trophy-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-plus-square" aria-hidden="true"></i> Přidat ocenění</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="new-trophy-date" class="form-control" type="text">
+								</div>
+								<div class="col-md-6">
+									<label>Název ocenění</label>
+									<input id="new-trophy-attr-1" class="form-control" type="text">
+								</div>
+							</div>
+						</div>
+					</form>
+					<label>Popis</label>
+					<input id="new-trophy-attr-2" class="form-control" type="text">
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-add-trophy" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="#" id="add-trophy" class="btn btn-success"><i class="fa fa-check"></i> Přidat</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="view-measure-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Detaily měření</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="measure-date" class="form-control" type="name" readonly>
+								</div>
+								<div class="col-md-6">
+									<label>Měření provedl</label>
+									<input id="measure-login" class="form-control" type="name" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Výška</label>
+								<input id="measure-attr-1" class="form-control" type="text" readonly>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Délka</label>
+								<input id="measure-attr-2" class="form-control" type="text" readonly>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<label>Obvod</label>
+							<input id="measure-attr-3" class="form-control" type="text" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="hide-measure" class="btn btn-primary"><i class="fa fa-check"></i> Ok</button>
+					<a id="confirm-measure-delete-button" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat záznam</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="view-weighting-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Detaily vážení</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="weighting-date" class="form-control" type="name" readonly>
+								</div>
+								<div class="col-md-6">
+									<label>Vážení provedl</label>
+									<input id="weighting-login" class="form-control" type="name" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="input-group">
+						<label>Váha</label>
+						<input id="weighting-attr-1" class="form-control" type="text" readonly>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="hide-weighting" class="btn btn-primary"><i class="fa fa-check"></i> Ok</button>
+					<a id="confirm-weighting-delete-button" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat záznam</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="view-preventive-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Detaily měření</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="preventive-date" class="form-control" type="text" readonly>
+								</div>
+								<div class="col-md-6">
+									<label>Vakcinaci provedl</label>
+									<input id="preventive-login" class="form-control" type="text" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group">
+								<label>Název Vakcíny</label>
+								<input id="preventive-attr-1" class="form-control" type="text" readonly>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-group">
+								<label>Doba účinosti</label>
+								<input id="preventive-attr-2" class="form-control" type="text" readonly>
+							</div>
+						</div>
+					</div>
+					<label>Popis</label>
+					<input id="preventive-attr-3" class="form-control" type="text" readonly>
+				</div>
+				<div class="modal-footer">
+					<button id="hide-preventive" class="btn btn-primary"><i class="fa fa-check"></i> Ok</button>
+					<a id="confirm-preventive-delete-button" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat záznam</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	
+	<div id="view-trophy-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Detaily měření</h3>
+				</div>
+				<div class="modal-body text-justify">
+					<form>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Datum</label>
+									<input id="trophy-date" class="form-control" type="text" readonly>
+								</div>
+								<div class="col-md-6">
+									<label>Název ocenění</label>
+									<input id="trophy-attr-1" class="form-control" type="text" readonly>
+								</div>
+							</div>
+						</div>
+					</form>
+					<label>Popis</label>
+					<input id="trophy-attr-2" class="form-control" type="text" readonly>
+				</div>
+				<div class="modal-footer">
+					<button id="hide-trophy" class="btn btn-primary"><i class="fa fa-check"></i> Ok</button>
+					<a id="confirm-trophy-delete-button" class="btn btn-danger"><i class="fa fa-trash"></i> Smazat záznam</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="confirm-measure-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Varování</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete odstranit záznam? Tato akce je nevratná!
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-measure-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="" id="confirm-measure-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="confirm-weighting-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Varování</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete odstranit záznam? Tato akce je nevratná!
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-weighting-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="" id="confirm-weighting-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="confirm-preventive-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Varování</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete odstranit záznam? Tato akce je nevratná!
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-preventive-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="" id="confirm-preventive-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="confirm-trophy-delete-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Varování</h3>
+				</div>
+				<div class="modal-body text-justify">
+					Opravdu chcete odstranit záznam? Tato akce je nevratná!
+				</div>
+				<div class="modal-footer">
+					<button id="cancel-trophy-delete" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+					<a href="" id="confirm-trophy-delete" class="btn btn-danger"><i class="fa fa-trash"></i> Odstranit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	$("#btn-add-measure").click(function(){
+		$("#add-measure-modal").modal("show");
+	});
+	$("#btn-add-weighting").click(function(){
+		$("#add-weighting-modal").modal("show");
+	});
+	$("#btn-add-trophy").click(function(){
+		$("#add-trophy-modal").modal("show");
+	});
+	$("#btn-add-preventive").click(function(){
+		$("#add-preventive-modal").modal("show");
+	});
+
+
+	$(".btn-view-measure-modal").click(function(){
+		var id = $(this).attr('data-id');
+		console.log("ss");
+		$.getJSON("/keeper/get-measure/" + id, function (data) {
+			$("#measure-date").val(data[0]["Datum"]["date"]);
+			$("#measure-login").val(data[0]["Uzivatel_Login"]);
+			$("#measure-attr-1").val(data[0]["Vyska"]);
+			$("#measure-attr-2").val(data[0]["Delka"]);
+			$("#measure-attr-3").val(data[0]["Obvod"]);
+			$("#confirm-measure-delete-button").attr('data-id', data[0]["ID"]);
+			$("#view-measure-modal").modal("show");
+		});
+	});
+	$("#hide-measure").click(function(){
+		$("#view-measure-modal").modal("hide");
+	});
+
+	$(".btn-view-weighting-modal").click(function(){
+		var id = $(this).attr('data-id');
+		$.getJSON("/keeper/get-weighting/" + id, function (data) {
+			$("#weighting-date").val(data[0]["Datum"]["date"]);
+			$("#weighting-login").val(data[0]["Uzivatel_Login"]);
+			$("#weighting-attr-1").val(data[0]["Vaha"]);
+			$("#confirm-weighting-delete-button").attr('data-id', data[0]["ID"]);
+			$("#view-weighting-modal").modal("show");
+		});
+	});
+	$("#hide-weighting").click(function(){
+		$("#view-weighting-modal").modal("hide");
+	});
+
+	$(".btn-view-preventive-modal").click(function(){
+		var id = $(this).attr('data-id');
+		console.log("ss");
+		$.getJSON("/keeper/get-preventive/" + id, function (data) {
+			$("#preventive-date").val(data[0]["Datum"]["date"]);
+			$("#preventive-login").val(data[0]["Uzivatel_Login"]);
+			$.getJSON("/keeper/get-preventive-info/" + data[0]["Vakcina_ID"], function (prevInfo) {
+				$("#preventive-attr-1").val(prevInfo[0]["Nazev"]);
+				$("#preventive-attr-2").val(prevInfo[0]["Doba_ucinnosti"]);
+				$("#preventive-attr-3").val(prevInfo[0]["Popis"]);
+				$("#confirm-preventive-delete-button").attr('data-id', data[0]["ID"]);
+				$("#view-preventive-modal").modal("show");
+			});
+		});
+	});
+	$("#hide-preventive").click(function(){
+		$("#view-preventive-modal").modal("hide");
+	});
+	
+	$(".btn-view-trophy-modal").click(function(){
+		var id = $(this).attr('data-id');
+		$.getJSON("/keeper/get-trophy/" + id, function (data) {
+			$("#trophy-date").val(data[0]["Datum"]["date"]);
+			$("#trophy-attr-1").val(data[0]["Nazev"]);
+			$("#trophy-attr-2").val(data[0]["Popis"]);
+			$("#confirm-trophy-delete-button").attr('data-id', data[0]["ID"]);
+			$("#view-trophy-modal").modal("show");
+		});
+	});
+	$("#hide-trophy").click(function(){
+		$("#view-trophy-modal").modal("hide");
+	});
+
+
+	$("#confirm-measure-delete-button").click(function(){
+		var id = $(this).attr('data-id');
+		$("#confirm-measure-delete-modal").modal("show");
+		$("#confirm-measure-delete").attr('href', "/keeper/delete-measure/" + id);
+	});
+	$("#cancel-measure-delete").click(function(){
+		$("#confirm-measure-delete-modal").modal("hide");
+	});
+
+
+	$("#confirm-weighting-delete-button").click(function(){
+		var id = $(this).attr('data-id');
+		$("#confirm-weighting-delete-modal").modal("show");
+		$("#confirm-weighting-delete").attr('href', "/keeper/delete-weighting/" + id);
+	});
+	$("#cancel-weighting-delete").click(function(){
+		$("#confirm-weighting-delete-modal").modal("hide");
+	});
+
+
+	$("#confirm-preventive-delete-button").click(function(){
+		var id = $(this).attr('data-id');
+		$("#confirm-preventive-delete-modal").modal("show");
+		$("#confirm-preventive-delete").attr('href', "/keeper/delete-preventive/" + id);
+	});
+	$("#cancel-preventive-delete").click(function(){
+		$("#confirm-preventive-delete-modal").modal("hide");
+	});
+
+
+	$("#confirm-trophy-delete-button").click(function(){
+		var id = $(this).attr('data-id');
+		$("#confirm-trophy-delete-modal").modal("show");
+		$("#confirm-trophy-delete").attr('href', "/keeper/delete-trophy/" + id);
+	});
+	$("#cancel-trophy-delete").click(function(){
+		$("#confirm-trophy-delete-modal").modal("hide");
+	});
+	
+	</script>
+{/block}
