@@ -77,105 +77,103 @@
 <div id="register-modal" class="modal fade" tabindex="-1" role="article" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h3><i class="fa fa-user-plus" aria-hidden="true"></i> Registrační formulář</h3>
-				</div>
-				<div class="modal-body text-justify">
-					<div class="panel panel-default">
-  						<div class="panel-heading">Základní údaje</div>
-  						<div class="panel-body">
-							<form>
-								<label>Uživatelský Login</label>
-								<div class="input-group">
-									<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-									<input class="form-control" type="name">
-								</div>
-								<label>Heslo</label>
-								<div class="input-group">
-									<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-									<input class="form-control" type="password" value="">
-								</div>
-								<br>
-								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
-											<label>Jméno</label>
-											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
-											<label>Příjmení</label>
-											<input class="form-control" type="name">
-							            </div>
-							        </div>
-							    </div>
-							</form>
-						</div>
+				<form action="/" n:name=registerForm>
+					<div class="modal-header">
+						<h3><i class="fa fa-user-plus" aria-hidden="true"></i> Registrační formulář</h3>
 					</div>
-					<div class="panel panel-default">
-  						<div class="panel-heading">Adresa + Kontakt</div>
-  						<div class="panel-body">
-							<form>
-								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
-											<label>Ulice</label>
-											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
-											<label>Město</label>
-											<input class="form-control" type="name">
-							            </div>
-							        </div>
-							    </div>
-								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
-											<label>PSČ</label>
-											<input class="form-control" type="name">
-										</div>
-										<div class="col-md-6">
-											<label>Telefon</label>
-											<div class="input-group">
-												<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-												<input type="text" class="form-control" id="exampleInputAmount">
+					<div class="modal-body text-justify">
+						<div class="panel panel-default">
+	  						<div class="panel-heading">Základní údaje</div>
+	  						<div class="panel-body">
+									<label>Uživatelský Login</label>
+									<div class="input-group">
+										<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
+										<input n:name=login class="form-control" type="text">
+									</div>
+									<label>Heslo</label>
+									<div class="input-group">
+										<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
+										<input n:name=password class="form-control" type="password" value="">
+									</div>
+									<br>
+									<div class="form-group">
+								        <div class="row">
+								            <div class="col-md-6">
+												<label>Jméno</label>
+												<input n:name=firstName class="form-control" type="text">
+								            </div>
+								            <div class="col-md-6">
+												<label>Příjmení</label>
+												<input n:name=lastName class="form-control" type="text">
+								            </div>
+								        </div>
+								    </div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+	  						<div class="panel-heading">Adresa + Kontakt</div>
+	  						<div class="panel-body">
+									<div class="form-group">
+								        <div class="row">
+								            <div class="col-md-6">
+												<label>Ulice</label>
+												<input n:name=street class="form-control" type="text">
+								            </div>
+								            <div class="col-md-6">
+												<label>Město</label>
+												<input n:name=city class="form-control" type="text">
+								            </div>
+								        </div>
+								    </div>
+									<div class="form-group">
+								        <div class="row">
+								            <div class="col-md-6">
+												<label>PSČ</label>
+												<input n:name=postCode class="form-control" type="text">
+											</div>
+											<div class="col-md-6">
+												<label>Telefon</label>
+												<div class="input-group">
+													<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+													<input n:name=phone type="text" class="form-control" id="exampleInputAmount">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<label>E-mail</label>
-								<div class="input-group">
-									<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
-									<input class="form-control" type="email">
-								</div>
+									<label>E-mail</label>
+									<div class="input-group">
+										<div class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></div>
+										<input n:name=email class="form-control" type="email">
+									</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+	  						<div class="panel-heading">Fakturační údaje</div>
+	  						<div class="panel-body">
+									<div class="form-group">
+								        <div class="row">
+								            <div class="col-md-6">
+												<label>Ulice</label>
+												<input n:name="f_street" class="form-control" type="text">
+								            </div>
+								            <div class="col-md-6">
+												<label>PSČ</label>
+												<input n:name="f_postCode" class="form-control" type="text">
+								            </div>
+								        </div>
+								    </div>
+									<label>Město</label>
+									<input n:name="f_city" class="form-control" type="text">
+							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
-  						<div class="panel-heading">Fakturační údaje</div>
-  						<div class="panel-body">
-							<form>
-								<div class="form-group">
-							        <div class="row">
-							            <div class="col-md-6">
-											<label>Ulice</label>
-											<input class="form-control" type="name">
-							            </div>
-							            <div class="col-md-6">
-											<label>PSČ</label>
-											<input class="form-control" type="name">
-							            </div>
-							        </div>
-							    </div>
-								<label>Město</label>
-								<input class="form-control" type="name">
-						</div>
+					<div class="modal-footer">
+						<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
+						<a href="/admin/add-staff/1">
+							<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
+						</a>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button id="cancel-user-add" class="btn btn-primary"><i class="fa fa-times"></i> Storno</button>
-					<a href="/admin/add-staff/1">
-						<button id="confirm-user-add" class="btn btn-success"><i class="fa fa-check"></i> Potvrdit</button>
-					</a>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

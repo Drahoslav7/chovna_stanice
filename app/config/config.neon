@@ -22,6 +22,7 @@ services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\Model\Authenticator
 	dog: App\Model\Dog
-	staff: App\Model\Staff	
+	staff: App\Model\Staff
 	order: App\Model\Order
 	client: App\Model\Client
+	- App\Model\Users

@@ -4,7 +4,7 @@ namespace App\Model;
 
 
 /**
- * Dog model.
+ * Staff model.
  */
 class Staff extends BaseModel {
 

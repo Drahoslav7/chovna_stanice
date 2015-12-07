@@ -4,7 +4,7 @@ namespace App\Model;
 
 
 /**
- * Order model.
+ * Client model.
  */
 class Client extends BaseModel {
 

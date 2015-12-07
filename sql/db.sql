@@ -125,8 +125,8 @@ CREATE TABLE `uzivatel` (
   `Prijmeni` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `K_Ulice` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `K_Mesto` varchar(30) DEFAULT NULL,
-  `K_PSKC` int(5) DEFAULT NULL,
-  `K_Telefon` int(12) DEFAULT NULL,
+  `K_PSC` int(5) DEFAULT NULL,
+  `K_Telefon` varchar(16) DEFAULT NULL,
   `Email` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `Role` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Login`)

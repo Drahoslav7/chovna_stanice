@@ -68,7 +68,7 @@ class User extends Nette\Object
 	}
 
 
-	/********************* Authentication ****************d*g**/
+	/********************* Authentication *******************/
 
 
 	/**
