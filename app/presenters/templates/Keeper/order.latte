@@ -14,10 +14,12 @@
 				<a href="/keeper/dog/{$order->Pes_ID}">
 					<img class="img-responsive img-resp-c" src="{$basePath}/img/dogs/{$order->Pes_ID}.jpg">
 				</a>
-				{if $order->Stav === 2}
-				<div class="btn btn-success dog-sold-mark"><i class="fa fa-check"></i></div>
-				{else}
+				{if $order->Stav === 1}
 				<div class="btn btn-info dog-sold-mark"><i class="fa fa-clock-o"></i></div>
+				{elseif $order->Stav === 2}
+				<div class="btn btn-danger dog-sold-mark"><i class="fa fa-times"></i></div>
+				{else}
+				<div class="btn btn-success dog-sold-mark"><i class="fa fa-check"></i></div>
 				{/if}
 				<div class="cell-footer">
 					<div class="cell-footer-text">

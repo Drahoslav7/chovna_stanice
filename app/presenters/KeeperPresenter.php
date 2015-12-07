@@ -49,50 +49,88 @@ class KeeperPresenter extends BasePresenter
 		$this->sendResponse(new Nette\Application\Responses\JsonResponse($this->mDog->getPreventiveDetailByID($id)));
 	}
 	
+	public function actionGetOrder($id)
+	{
+		$this->sendResponse(new Nette\Application\Responses\JsonResponse($this->mOrder->getOrderByID($id)));
+	}
+	
 	public function actionDeleteMeasure($id)
 	{
+		$redirectLink = $this->mDog->getDogMeasureByID($id);
+		$redirectLink = $redirectLink[0]["Pes_ID"];
 		if ($this->mDog->deleteMeasure($id)) {
 			$this->flashMessage("Záznam $id smazán", 'success');
 		} else {
 			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
 		}
 		
-		$this->redirect("Keeper:dog", 1);
+		$this->redirect("Keeper:dog", $redirectLink);
 	}
 	
 	public function actionDeleteWeighting($id)
 	{
+		$redirectLink = $this->mDog->getDogWeightingByID($id);
+		$redirectLink = $redirectLink[0]["Pes_ID"];
 		if ($this->mDog->deleteWeighting($id)) {
 			$this->flashMessage("Záznam $id smazán", 'success');
 		} else {
 			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
 		}
 		
-		$this->redirect("Keeper:dog", 1);
+		$this->redirect("Keeper:dog", $redirectLink);
 	}
 	
 	public function actionDeletePreventive($id)
 	{
+		$redirectLink = $this->mDog->getDogPreventiveByID($id);
+		$redirectLink = $redirectLink[0]["Pes_ID"];
 		if ($this->mDog->deletePreventive($id)) {
 			$this->flashMessage("Záznam $id smazán", 'success');
 		} else {
 			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
 		}
 		
-		$this->redirect("Keeper:dog", 1);
+		$this->redirect("Keeper:dog", $redirectLink);
 	}
 	
 	public function actionDeleteTrophy($id)
 	{
+		$redirectLink = $this->mDog->getDogTrophyByID($id);
+		$redirectLink = $redirectLink[0]["Pes_ID"];
 		if ($this->mDog->deleteTrophy($id)) {
 			$this->flashMessage("Záznam $id smazán", 'success');
 		} else {
 			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
 		}
 		
-		$this->redirect("Keeper:dog", 1);
+		$this->redirect("Keeper:dog", $redirectLink);
 	}
 
+	public function actionConfirmOrder($id)
+	{
+		$dogID = $this->mOrder->getOrderByID($id);
+		$dogID = $dogID["Pes_ID"];
+		if ($this->mOrder->confirmOrderByID($id, $dogID)) {
+			$this->flashMessage("Záznam $id smazán", 'success');
+		} else {
+			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
+		}
+		
+		$this->redirect("Keeper:dog", $dogID);
+	}
+	
+	public function actionDenyOrder($id)
+	{
+		$redirectLink = $this->mOrder->getOrderByID($id);
+		$redirectLink = $redirectLink["Pes_ID"];
+		if ($this->mOrder->denyOrderByID($id)) {
+			$this->flashMessage("Záznam $id smazán", 'success');
+		} else {
+			$this->flashMessage("Záznam $id se nepodařilo smazat", 'danger');
+		}
+		
+		$this->redirect("Keeper:dog", $redirectLink);
+	}
 
 
 	public function actionDeleteDog($id)
@@ -116,6 +154,7 @@ class KeeperPresenter extends BasePresenter
 			$this->template->weightHistory = $this->mDog->getDogWeightingsByID($id);
 			$this->template->preventiveHistory = $this->mDog->getDogPreventivesByID($id);
 			$this->template->trophyHistory = $this->mDog->getDogTrophiesByID($id);
+			$this->template->orders = $this->mOrder->getOrderByDogID($id);
 		} else {
 			$this->template->dogs = $this->mDog->getDogs();
 		}
