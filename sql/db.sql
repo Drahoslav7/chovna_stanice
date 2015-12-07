@@ -29,7 +29,7 @@ Stav INT(2) NULL ,
 Datum DATE NULL ,
 Castka INT(10) NULL ,
 Pes_ID INT(10) NOT NULL ,
-Uzivatel_Login VARCHAR(8) NOT NULL
+Uzivatel_Login VARCHAR(10) NOT NULL
 );
 
 -- ----------------------------
@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS Pes_mereni;
 CREATE TABLE Pes_mereni (
  ID INT(10) NOT NULL ,
 Pes_ID INT(10) NULL ,
-Uzivatel_Login VARCHAR(8) NULL ,
+Uzivatel_Login VARCHAR(10) NULL ,
 Datum DATE NULL ,
 Vyska INT(3) NULL ,
 Delka INT(3) NULL ,
@@ -98,12 +98,12 @@ CREATE TABLE `pes_vakcinace` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Pes_ID` int(10) DEFAULT NULL,
   `Vakcina_ID` int(10) DEFAULT NULL,
-  `Uzivatel_Login` varchar(8) DEFAULT NULL,
+  `Uzivatel_Login` varchar(10) DEFAULT NULL,
   `Datum` date DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `Pes_ID` (`Pes_ID`),
   KEY `Uzivatel_Login` (`Uzivatel_Login`),
-  KEY `Vakcina_ID` (`Vakcina_ID`),
+  KEY `Vakcina_ID` (`Vakcina_ID`)
 );
 
 -- 2015-12-07 17:06:08
@@ -115,7 +115,7 @@ DROP TABLE IF EXISTS Pes_vazeni;
 CREATE TABLE Pes_vazeni (
 ID INT(10) NOT NULL ,
 Pes_ID INT(10) NULL ,
-Uzivatel_Login VARCHAR(8) NULL ,
+Uzivatel_Login VARCHAR(10) NULL ,
 Datum DATE NULL ,
 Vaha INT(3) NULL
 );
@@ -126,7 +126,7 @@ Vaha INT(3) NULL
 DROP TABLE IF EXISTS `uzivatel`;
 CREATE TABLE `uzivatel` (
   _deleted BOOLEAN DEFAULT 0, 
-  `Login` varchar(8) NOT NULL,
+  `Login` varchar(10) NOT NULL,
   `Heslo` varchar(128) NOT NULL,
   `Jmeno` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `Prijmeni` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
@@ -144,7 +144,7 @@ CREATE TABLE `uzivatel` (
 -- ----------------------------
 DROP TABLE IF EXISTS Uzivatel_klient;
 CREATE TABLE Uzivatel_klient (
-Login VARCHAR(8) NOT NULL ,
+Login VARCHAR(10) NOT NULL ,
 F_Ulice NVARCHAR(30) NULL ,
 F_Mesto NVARCHAR(30) NULL ,
 F_PSC NVARCHAR(5) NULL
@@ -155,7 +155,7 @@ F_PSC NVARCHAR(5) NULL
 -- ----------------------------
 DROP TABLE IF EXISTS Uzivatel_zamestnanec;
 CREATE TABLE Uzivatel_zamestnanec (
-Login VARCHAR(8) NOT NULL ,
+Login VARCHAR(10) NOT NULL ,
 Zkr_fce NVARCHAR(4) NULL ,
 Plat INT(10) NULL
 );
@@ -370,14 +370,15 @@ INSERT INTO Uzivatel VALUES (0, 'jirka', SHA2('hustodémonskykrutopřísné', 51
 -- ----------------------------
 -- Records of Uzivatel_klient
 -- ----------------------------
-INSERT INTO Uzivatel_klient VALUES ('xlehne01', 'Vesnicovska', 'Vesnice', '11132');
+INSERT INTO Uzivatel_klient VALUES ('pavla', 'Vesnicovska', 'Vesnice', '11132');
+INSERT INTO Uzivatel_klient VALUES ('jirka', 'Liberec', 'Ulice', '11132');
 
 -- ----------------------------
 -- Records of Uzivatel_zamestnanec
 -- ----------------------------
-INSERT INTO Uzivatel_zamestnanec VALUES ('zkunca07', 'RED', '50000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('zbalvi00', 'CHV', '20000');
-INSERT INTO Uzivatel_zamestnanec VALUES ('zbedna55', 'CHV', '25000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('admin', 'RED', '50000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel1', 'CHV', '20000');
+INSERT INTO Uzivatel_zamestnanec VALUES ('chovatel2', 'CHV', '25000');
 
 -- ----------------------------
 -- Records of Chovna_stanice
@@ -408,9 +409,9 @@ INSERT INTO `pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cisl
 -- ----------------------------
 -- Records of Pes_mereni
 -- ----------------------------
-INSERT INTO Pes_mereni VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:09:51', '30', '50', '20');
-INSERT INTO Pes_mereni VALUES ('2', '2', 'zbalvi00', '2015-04-11 23:09:51', '32', '48', '20');
-INSERT INTO Pes_mereni VALUES ('3', '2', 'zbalvi00', '2015-04-11 23:09:51', '31', '48', '20');
+INSERT INTO Pes_mereni VALUES ('1', '1', 'chovatel1', '2015-04-11 23:09:51', '30', '50', '20');
+INSERT INTO Pes_mereni VALUES ('2', '2', 'chovatel1', '2015-04-11 23:09:51', '32', '48', '20');
+INSERT INTO Pes_mereni VALUES ('3', '2', 'chovatel1', '2015-04-11 23:09:51', '31', '48', '20');
 
 -- ----------------------------
 -- Records of Pes_oceneni
@@ -431,20 +432,20 @@ INSERT INTO Vakcina VALUES ('4', 'Kvalitinol', 'Vse', '1');
 -- ----------------------------
 -- Records of Pes_vakcinace
 -- ----------------------------
-INSERT INTO Pes_vakcinace VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:05:03');
-INSERT INTO Pes_vakcinace VALUES ('1', '4', 'zbalvi00', '2015-04-11 23:05:19');
-INSERT INTO Pes_vakcinace VALUES ('4', '3', 'zbedna55', '2015-04-09 23:05:34');
+INSERT INTO Pes_vakcinace VALUES (1, '1', '1', 'chovatel1', '2015-04-11 23:05:03');
+INSERT INTO Pes_vakcinace VALUES (2, '1', '4', 'chovatel1', '2015-04-11 23:05:19');
+INSERT INTO Pes_vakcinace VALUES (3, '4', '3', 'chovatel2', '2015-04-09 23:05:34');
 
 -- ----------------------------
 -- Records of Pes_vazeni
 -- ----------------------------
-INSERT INTO Pes_vazeni VALUES ('1', '1', 'zbalvi00', '2015-04-11 23:09:51', '30');
-INSERT INTO Pes_vazeni VALUES ('2', '2', 'zbalvi00', '2015-04-11 23:09:51', '30');
-INSERT INTO Pes_vazeni VALUES ('3', '2', 'zbalvi00', '2015-04-11 23:09:51', '31');
+INSERT INTO Pes_vazeni VALUES ('1', '1', 'chovatel1', '2015-04-11 23:09:51', '30');
+INSERT INTO Pes_vazeni VALUES ('2', '2', 'chovatel1', '2015-04-11 23:09:51', '30');
+INSERT INTO Pes_vazeni VALUES ('3', '2', 'chovatel1', '2015-04-11 23:09:51', '31');
 
 
 -- ----------------------------
 -- Records of Objednavka
 -- ----------------------------
-INSERT INTO Objednavka VALUES ('1', '1', '2015-04-10 23:14:15', '5000', '4', 'zkunca07');
-INSERT INTO Objednavka VALUES ('2', '1', '2013-06-18 23:14:56', '10000', '3', 'xlehne01');
+INSERT INTO Objednavka VALUES ('1', '1', '2015-04-10 23:14:15', '5000', '4', 'jirka');
+INSERT INTO Objednavka VALUES ('2', '1', '2013-06-18 23:14:56', '10000', '3', 'pavla');

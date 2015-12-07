@@ -89,7 +89,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$form = new Form;
 		$form->addText('login')
 			->setRequired()
-			->addRule(Form::MAX_LENGTH, 'Login smí mít maximálně %d znaků.', 8);;
+			->addRule(Form::MAX_LENGTH, 'Login smí mít maximálně %d znaků.', 10);;
 ;
 		$form->addPassword('password')
 			->setRequired()
