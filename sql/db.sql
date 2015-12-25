@@ -32,8 +32,6 @@ Pes_ID INT(10) NOT NULL ,
 Uzivatel_Login VARCHAR(10) NOT NULL
 );
 
-ALTER TABLE `objednavka`
-CHANGE `ID` `ID` int(10) NOT NULL AUTO_INCREMENT FIRST;
 
 -- ----------------------------
 -- Table structure for Pes
@@ -200,6 +198,9 @@ ALTER TABLE Objednavka ADD CHECK (Uzivatel_Login IS NOT NULL);
 -- Primary Key structure for table Objednavka
 -- ----------------------------
 ALTER TABLE Objednavka ADD PRIMARY KEY (ID);
+
+ALTER TABLE `objednavka`
+CHANGE `ID` `ID` int(10) NOT NULL AUTO_INCREMENT FIRST;
 
 -- ----------------------------
 -- Checks structure for table Pes
