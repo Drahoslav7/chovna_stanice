@@ -3,7 +3,7 @@
 */
 
 SET foreign_key_checks = 0;
-DROP TABLE IF EXISTS `chovna_stanice`, `objednavka`, `pes`, `pes_mereni`, `pes_oceneni`, `pes_plemeno`, `pes_vakcinace`, `pes_vazeni`, `uzivatel`, `uzivatel_klient`, `uzivatel_zamestnanec`, `vakcina`;
+DROP TABLE IF EXISTS `Chovna_stanice`, `Objednavka`, `Pes`, `Pes_mereni`, `Pes_oceneni`, `Pes_plemeno`, `Pes_vakcinace`, `Pes_vazeni`, `Uzivatel`, `Uzivatel_klient`, `Uzivatel_zamestnanec`, `Vakcina`;
 SET foreign_key_checks = 1;
 
 -- ----------------------------
@@ -95,8 +95,8 @@ Popis NVARCHAR(255) NULL
 -- ----------------------------
 -- Table structure for Pes_vakcinace
 -- ----------------------------
-DROP TABLE IF EXISTS `pes_vakcinace`;
-CREATE TABLE `pes_vakcinace` (
+DROP TABLE IF EXISTS `Pes_vakcinace`;
+CREATE TABLE `Pes_vakcinace` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Pes_ID` int(10) DEFAULT NULL,
   `Vakcina_ID` int(10) DEFAULT NULL,
@@ -125,8 +125,8 @@ Vaha INT(3) NULL
 -- ----------------------------
 -- Table structure for Uzivatel
 -- ----------------------------
-DROP TABLE IF EXISTS `uzivatel`;
-CREATE TABLE `uzivatel` (
+DROP TABLE IF EXISTS `Uzivatel`;
+CREATE TABLE `Uzivatel` (
   _deleted BOOLEAN DEFAULT 0, 
   `Login` varchar(10) NOT NULL,
   `Heslo` varchar(128) NOT NULL,
@@ -199,7 +199,7 @@ ALTER TABLE Objednavka ADD CHECK (Uzivatel_Login IS NOT NULL);
 -- ----------------------------
 ALTER TABLE Objednavka ADD PRIMARY KEY (ID);
 
-ALTER TABLE `objednavka`
+ALTER TABLE `Objednavka`
 CHANGE `ID` `ID` int(10) NOT NULL AUTO_INCREMENT FIRST;
 
 -- ----------------------------
@@ -392,7 +392,7 @@ INSERT INTO Chovna_stanice VALUES ('1', 'Utulek kamaradu', 'Prazska', 'Praha', '
 -- ----------------------------
 -- Records of Pes_plemeno
 -- ----------------------------
-INSERT INTO `pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Zeme_puvodu`, `Popis`) VALUES
+INSERT INTO `Pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Zeme_puvodu`, `Popis`) VALUES
 (1, 'Jack Russel Terier', 30, 5, 'UK', 'Pratelsky pes'),
 (2, 'Border Kolie', 50, 17, 'UK', 'Aktivni pes'),
 (3, 'Jezevcik', 50, 17, 'UK', 'Dlouhy pes');
@@ -400,7 +400,7 @@ INSERT INTO `pes_plemeno` (`ID`, `Nazev`, `Prumerna_vyska`, `Prumerna_vaha`, `Ze
 -- ----------------------------
 -- Records of Pes
 -- ----------------------------
-INSERT INTO `pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`, `Cena`) VALUES
+INSERT INTO `Pes` (`_deleted`, `ID`, `Jmeno`, `Pohlavi`, `Datum_narozeni`, `Cislo_cipu`, `Barva_srsti`, `Druh_srsti`, `Chovna_stanice_ID`, `Plemeno_ID`, `Matka_ID`, `Otec_ID`, `Cena`) VALUES
 (0, 1, 'Rex', 'M', '2012-03-12', 123929652976738, 'Bila', 'Rex', NULL, 1, NULL, NULL, 2000),
 (0, 2, 'Rita', 'F', '2012-04-12', 123456755234574, 'Cerna', 'Bez', NULL, 1, NULL, NULL, 2000),
 (0, 3, 'Lajka', 'F', '2013-12-18', 123433690123456, 'Cernobila', 'Rex', NULL, 1, 2, 1, 5000),
