@@ -62,7 +62,7 @@ class Users extends BaseModel {
 
 	private function newUser($values, $role)
 	{
-		$ok = $this->db->table("uzivatel")->insert(array(
+		$ok = $this->db->table("Uzivatel")->insert(array(
 			'Login' => $values->login,
 			'Heslo' => hash('sha512', $values->password),
 			'Jmeno' => $values->firstName,
